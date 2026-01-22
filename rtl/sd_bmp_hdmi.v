@@ -1,29 +1,7 @@
-//****************************************Copyright (c)***********************************//
-//原子哥在线教学平台：www.yuanzige.com
-//技术支持：www.openedv.com
-//淘宝店铺：http://openedv.taobao.com
-//关注微信公众平台微信号："正点原子"，免费获取ZYNQ & FPGA & STM32 & LINUX资料。
-//版权所有，盗版必究。
-//Copyright(C) 正点原子 2018-2028
-//All rights reserved
-//----------------------------------------------------------------------------------------
-// File name:           sd_bmp_hdmi
-// Last modified Date:  2020/12/01 10:39:20
-// Last Version:        V1.0
-// Descriptions:        SD卡读BMP图片HDMI显示
-//                      
-//----------------------------------------------------------------------------------------
-// Created by:          正点原子
-// Created date:        2020/12/01 10:39:20
-// Version:             V1.0
-// Descriptions:        The original version
-//
-//----------------------------------------------------------------------------------------
-//****************************************************************************************//
-
 module sd_bmp_hdmi(    
     input                 sys_clk,      //系统时钟
-    input                 sys_rst_n,    //系统复位，低电平有效                       
+    input                 sys_rst_n,    //系统复位，低电平有效
+    input                 key_jump,     //用户按键: 跳跃                       
     //SD卡接口
     input                 sd_miso,      //SD卡SPI串行输入数据信号
     output                sd_clk ,      //SD卡SPI时钟信号
@@ -48,10 +26,12 @@ module sd_bmp_hdmi(
     );
 
 //parameter define 
-//SDRAM读写最大地址 1024 * 768 = 786432
-parameter  SDRAM_MAX_ADDR = 786432;  
-//SD卡读扇区个数 1024 * 768 * 3 / 512 + 1 = 4609
-parameter  SD_SEC_NUM = 4609;        
+//SDRAM读写最大地址 1024 * 768 = 786432 (用于HDMI显示循环读取)
+parameter  SDRAM_DISP_ADDR = 786432;
+//SDRAM总容量范围 (用于写入多张图片)
+parameter  SDRAM_TOTAL_SIZE = 4000000;  
+//SD卡读扇区个数 (不再使用固定值，由sd_multi_pic控制)
+//parameter  SD_SEC_NUM = 4609;        
 
 //wire define  
 wire         clk_100m       ;  //100Mhz时钟,SDRAM操作时钟
@@ -80,6 +60,23 @@ wire  [15:0] rd_data        ;  //SDRAM控制器模块读数据
 wire         sdram_init_done;  //SDRAM初始化完成
 wire         sys_init_done  ;  //系统初始化完成
 
+// 新增连接信号
+wire [23:0]  sdram_base_addr; // 当前图片写入基地址
+wire         pic_switch;      // 图片切换复位信号
+wire         pic_load_done;   // 加载完成信号
+wire         sdram_wr_load;   // 最终的SDRAM写复位信号
+
+// 游戏相关信号
+wire [10:0]  pixel_xpos;      // HDMI当前扫描X坐标
+wire [10:0]  pixel_ypos;      // HDMI当前扫描Y坐标
+wire         video_vs;        // 场同步信号
+reg          vs_d0, vs_d1;    // 抓取VS边沿
+wire         frame_en;        // 帧同步脉冲
+wire [11:0]  bird_x;          // 小鸟X坐标
+wire [11:0]  bird_y;          // 小鸟Y坐标
+wire [15:0]  final_pixel_data;// 最终送往HDMI的颜色数据
+reg  [15:0]  sdram_rd_data_r; // 注册SDRAM数据以改善时序(可选)
+
 //*****************************************************
 //**                    main code
 //*****************************************************
@@ -91,6 +88,130 @@ assign  sys_init_done = sdram_init_done & sd_init_done;
 //SDRAM控制器模块为写使能和写数据赋值
 assign  wr_en = sdram_wr_en;
 assign  wr_data = sdram_wr_data;
+
+// 生成写复位信号：系统复位 或 图片切换
+assign  sdram_wr_load = (~rst_n) | pic_switch;
+
+wire [11:0]  pipe1_x, pipe1_gap_y;
+wire [11:0]  pipe2_x, pipe2_gap_y;
+
+// BRAM加载逻辑信号
+reg          bird_load_en;
+reg  [12:0]  bird_load_addr; // 扩大地址位宽：1750 * 3 = 5250，需要13位 (2^13=8192)
+
+// 检测是否在加载小鸟 (BIRD0, BIRD1, BIRD2)
+// BIRD0: 2552896, BIRD1: 2554646, BIRD2: 2556396
+wire is_loading_bird;
+assign is_loading_bird = (sdram_base_addr >= 24'd2552896) && (sdram_base_addr <= 24'd2556396);
+
+// 产生写入地址
+always @(posedge clk_50m or negedge rst_n) begin
+    if(!rst_n) begin
+        bird_load_addr <= 0;
+        bird_load_en <= 0;
+    end else begin
+        // 当正在读取小鸟图片，且数据有效时 (只要 sdram_wr_en 有效即可)
+        if(is_loading_bird && sdram_wr_en) begin
+            bird_load_en <= 1'b1;
+            bird_load_addr <= bird_load_addr + 1'b1;
+        end else begin
+            bird_load_en <= 1'b0;
+            // 只有在切换到非小鸟图片，或者切换到第一张小鸟图片时复位
+            // 注意：BIRD1 和 BIRD2 切换时不要复位，要接着写
+            if(pic_switch) begin
+                if(sdram_base_addr == 24'd2552896) // BIRD0 Start
+                     bird_load_addr <= 0;
+                // else if BIRD1/2, keep address
+            end
+        end
+    end
+end
+
+// -------------------------------------------------------------------------
+// 游戏逻辑集成
+// -------------------------------------------------------------------------
+
+// 1. 生成帧同步信号 (VS上升沿，即一帧结束/开始时)
+// 为了确保稳定性，增加一个基于计数器的内部帧信号 (60Hz)
+reg [20:0] frame_cnt;
+reg        internal_frame_en;
+always @(posedge hdmi_clk or negedge rst_n) begin
+    if(!rst_n) begin
+        frame_cnt <= 0;
+        internal_frame_en <= 0;
+    end else begin
+        if(frame_cnt >= 1083333) begin // 65MHz / 60Hz
+            frame_cnt <= 0;
+            internal_frame_en <= 1'b1;
+        end else begin
+            frame_cnt <= frame_cnt + 1'b1;
+            internal_frame_en <= 1'b0;
+        end
+    end
+end
+
+always @(posedge hdmi_clk or negedge rst_n) begin
+    if(!rst_n) begin
+        vs_d0 <= 1'b0;
+        vs_d1 <= 1'b0;
+    end else begin
+        vs_d0 <= video_vs;
+        vs_d1 <= vs_d0;
+    end
+end
+assign frame_en = vs_d0 & (~vs_d1); // 上升沿脉冲
+
+// 2. 例化小鸟控制模块
+bird_ctrl u_bird_ctrl(
+    .clk            (hdmi_clk),      // 使用HDMI时钟，避免跨时钟域问题
+    .rst_n          (rst_n),
+    .key_jump       (~key_jump),     // 按键低电平有效，取反后变为高有效
+    .game_active    (1'b1),          // 强制激活游戏状态
+    .frame_en_unused(internal_frame_en), // 连接内部帧信号(仅做参考)
+    .bird_y         (bird_y),
+    .bird_x         (bird_x),
+    .bird_angle     ()
+);
+
+// 3. 管道生成模块
+pipe_gen u_pipe_gen(
+    .clk            (hdmi_clk),
+    .rst_n          (rst_n),
+    .game_active    (1'b1),
+    .frame_en       (internal_frame_en), // 使用内部产生的稳定60Hz信号
+    .random_seed    (16'd0), // 暂时用0，后续可用像素计数器
+    .pipe1_x        (pipe1_x),
+    .pipe1_gap_y    (pipe1_gap_y),
+    .pipe2_x        (pipe2_x),
+    .pipe2_gap_y    (pipe2_gap_y)
+);
+
+// 4. 精灵渲染模块 (替代原来的叠加逻辑)
+wire [15:0] sprite_pixel_out;
+
+sprite_render u_sprite_render(
+    .clk            (hdmi_clk),
+    .rst_n          (rst_n),
+    .pixel_x        (pixel_xpos),
+    .pixel_y        (pixel_ypos),
+    .bird_x         (bird_x),
+    .bird_y         (bird_y),
+    .pipe1_x        (pipe1_x),
+    .pipe1_gap_y    (pipe1_gap_y),
+    .pipe2_x        (pipe2_x),
+    .pipe2_gap_y    (pipe2_gap_y),
+    .bg_data        (rd_data), // 来自SDRAM的背景流
+    
+    // 加载接口
+    .bird_load_clk  (clk_50m),
+    .bird_load_en   (bird_load_en),
+    .bird_load_addr (bird_load_addr),
+    .bird_load_data (sdram_wr_data), // 抓取写入SDRAM的数据
+    
+    .pixel_out      (sprite_pixel_out)
+);
+
+// -------------------------------------------------------------------------
 
 //时钟IP核
 pll_clk	pll_clk_inst (
@@ -112,21 +233,23 @@ pll_hdmi	pll_hdmi_inst (
 	.locked 			( locked_hdmi )
 	);    
 
-//读取SD卡图片
-sd_read_photo u_sd_read_photo(
+// 读取SD卡图片 (多图版本)
+sd_multi_pic u_sd_multi_pic(
     .clk             (clk_50m),
-    //系统初始化完成之后,再开始从SD卡中读取图片
     .rst_n           (rst_n & sys_init_done), 
-    .sdram_max_addr  (SDRAM_MAX_ADDR),       
-    .sd_sec_num      (SD_SEC_NUM), 
     .rd_busy         (sd_rd_busy),
     .sd_rd_val_en    (sd_rd_val_en),
     .sd_rd_val_data  (sd_rd_val_data),
     .rd_start_en     (sd_rd_start_en),
     .rd_sec_addr     (sd_rd_sec_addr),
     .sdram_wr_en     (sdram_wr_en),
-    .sdram_wr_data   (sdram_wr_data)
-    );   
+    .sdram_wr_data   (sdram_wr_data),
+    
+    // 新增控制接口
+    .sdram_base_addr (sdram_base_addr),
+    .pic_switch      (pic_switch),
+    .pic_load_done   (pic_load_done)
+);   
 
 //SD卡顶层控制模块
 sd_ctrl_top u_sd_ctrl_top(
@@ -165,17 +288,17 @@ sdram_top u_sdram_top(
     .wr_clk             (clk_50m ),           // 写端口FIFO: 写时钟
     .wr_en              (wr_en   ),           // 写端口FIFO: 写使能
     .wr_data            (wr_data ),           // 写端口FIFO: 写数据
-    .wr_min_addr        (24'd0   ),           // 写SDRAM的起始地址
-    .wr_max_addr        (SDRAM_MAX_ADDR),     // 写SDRAM的结束地址
+    .wr_min_addr        (sdram_base_addr),    // 写SDRAM的起始地址 (动态改变)
+    .wr_max_addr        (SDRAM_TOTAL_SIZE),   // 写SDRAM的结束地址 (足够大)
     .wr_len             (10'd512 ),           // 写SDRAM时的数据突发长度
-    .wr_load            (~rst_n ),            // 写端口复位: 复位写地址,清空写FIFO
+    .wr_load            (sdram_wr_load),      // 写端口复位: 图片切换时复位
 
     //用户读端口
     .rd_clk             (hdmi_clk),           // 读端口FIFO: 读时钟
     .rd_en              (rd_en   ),           // 读端口FIFO: 读使能
     .rd_data            (rd_data ),           // 读端口FIFO: 读数据
-    .rd_min_addr        (24'd0   ),           // 读SDRAM的起始地址
-    .rd_max_addr        (SDRAM_MAX_ADDR),     // 读SDRAM的结束地址
+    .rd_min_addr        (24'd0   ),           // 读SDRAM的起始地址 (暂时只读背景)
+    .rd_max_addr        (SDRAM_DISP_ADDR),    // 读SDRAM的结束地址 (背景图大小)
     .rd_len             (10'd512 ),           // 从SDRAM中读数据时的突发长度
     .rd_load            (~rst_n),             // 读端口复位: 复位读地址,清空读FIFO
 
@@ -202,11 +325,11 @@ hdmi_top u_hdmi_top(
     .hdmi_clk_5     (hdmi_clk_5 ),
     .rst_n          (rst_n & sys_init_done),
                 
-    .rd_data        (rd_data    ),
+    .rd_data        (sprite_pixel_out), // 修改这里：连接 sprite_render 的输出
     .rd_en          (rd_en      ), 
-    .pixel_xpos     (),
-    .pixel_ypos     (),
-    .video_vs       (),	 
+    .pixel_xpos     (pixel_xpos ),      // 接出坐标
+    .pixel_ypos     (pixel_ypos ),      // 接出坐标
+    .video_vs       (video_vs   ),      // 接出VS信号
 	 .h_disp         (),
 	 .v_disp         (),
     .tmds_clk_p     (tmds_clk_p ),

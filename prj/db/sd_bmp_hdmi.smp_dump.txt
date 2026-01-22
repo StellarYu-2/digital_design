@@ -8,3 +8,15 @@ cur_state.st_send_cmd8 0 0 0 1 0 0 1
 cur_state.st_send_cmd55 0 0 1 0 0 0 1 
 cur_state.st_send_acmd41 0 1 0 0 0 0 1 
 cur_state.st_init_done 1 0 0 0 0 0 1 
+
+State Machine - |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|state
+Name state.011 state.010 state.001 state.000 
+state.000 0 0 0 0 
+state.001 0 0 1 1 
+state.010 0 1 0 1 
+state.011 1 0 0 1 
+
+State Machine - |sd_bmp_hdmi|sprite_render:u_sprite_render|bird_anim_idx
+Name bird_anim_idx.00 
+bird_anim_idx.01 0 
+bird_anim_idx.00 1 

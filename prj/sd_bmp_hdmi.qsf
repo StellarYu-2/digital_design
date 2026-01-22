@@ -54,30 +54,6 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE ipcore/ddio_out/ddio_out.v
-set_global_assignment -name VERILOG_FILE ipcore/pll_hdmi/pll_hdmi.v
-set_global_assignment -name VERILOG_FILE ipcore/pll_clk/pll_clk.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/wrfifo.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_top.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_para.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_fifo_ctrl.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_data.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_ctrl.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_controller.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_cmd.v
-set_global_assignment -name VERILOG_FILE ../rtl/sdram/rdfifo.v
-set_global_assignment -name VERILOG_FILE ../rtl/sd_ctrl_top/sd_write.v
-set_global_assignment -name VERILOG_FILE ../rtl/sd_ctrl_top/sd_read.v
-set_global_assignment -name VERILOG_FILE ../rtl/sd_ctrl_top/sd_init.v
-set_global_assignment -name VERILOG_FILE ../rtl/sd_ctrl_top/sd_ctrl_top.v
-set_global_assignment -name VERILOG_FILE ../rtl/hdmi/video_driver.v
-set_global_assignment -name VERILOG_FILE ../rtl/hdmi/serializer_10_to_1.v
-set_global_assignment -name VERILOG_FILE ../rtl/hdmi/hdmi_top.v
-set_global_assignment -name VERILOG_FILE ../rtl/hdmi/dvi_transmitter_top.v
-set_global_assignment -name VERILOG_FILE ../rtl/hdmi/dvi_encoder.v
-set_global_assignment -name VERILOG_FILE ../rtl/hdmi/asyn_rst_syn.v
-set_global_assignment -name VERILOG_FILE ../rtl/sd_read_photo.v
-set_global_assignment -name VERILOG_FILE ../rtl/sd_bmp_hdmi.v
 
 #系统时钟和复位
 set_location_assignment PIN_M2 -to sys_clk
@@ -153,7 +129,6 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_global_assignment -name SDC_FILE sd_bmp_hdmi.sdc
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sd_clk
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sd_cs
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sd_miso
@@ -213,4 +188,36 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sdram_data[14]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sdram_data[15]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sdram_data
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sdram_cs_n
+set_location_assignment PIN_E16 -to key_jump
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to key_jump
+set_global_assignment -name VERILOG_FILE ../rtl/game/sprite_render.v
+set_global_assignment -name VERILOG_FILE ../rtl/game/pipe_gen.v
+set_global_assignment -name VERILOG_FILE ../rtl/game/game_param.v
+set_global_assignment -name VERILOG_FILE ../rtl/game/bird_ctrl.v
+set_global_assignment -name VERILOG_FILE ../rtl/sd_multi_pic.v
+set_global_assignment -name VERILOG_FILE ipcore/ddio_out/ddio_out.v
+set_global_assignment -name VERILOG_FILE ipcore/pll_hdmi/pll_hdmi.v
+set_global_assignment -name VERILOG_FILE ipcore/pll_clk/pll_clk.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/wrfifo.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_top.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_para.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_fifo_ctrl.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_data.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_ctrl.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_controller.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/sdram_cmd.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram/rdfifo.v
+set_global_assignment -name VERILOG_FILE ../rtl/sd_ctrl_top/sd_write.v
+set_global_assignment -name VERILOG_FILE ../rtl/sd_ctrl_top/sd_read.v
+set_global_assignment -name VERILOG_FILE ../rtl/sd_ctrl_top/sd_init.v
+set_global_assignment -name VERILOG_FILE ../rtl/sd_ctrl_top/sd_ctrl_top.v
+set_global_assignment -name VERILOG_FILE ../rtl/hdmi/video_driver.v
+set_global_assignment -name VERILOG_FILE ../rtl/hdmi/serializer_10_to_1.v
+set_global_assignment -name VERILOG_FILE ../rtl/hdmi/hdmi_top.v
+set_global_assignment -name VERILOG_FILE ../rtl/hdmi/dvi_transmitter_top.v
+set_global_assignment -name VERILOG_FILE ../rtl/hdmi/dvi_encoder.v
+set_global_assignment -name VERILOG_FILE ../rtl/hdmi/asyn_rst_syn.v
+set_global_assignment -name VERILOG_FILE ../rtl/sd_read_photo.v
+set_global_assignment -name VERILOG_FILE ../rtl/sd_bmp_hdmi.v
+set_global_assignment -name SDC_FILE sd_bmp_hdmi.sdc
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
