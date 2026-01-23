@@ -30,6 +30,14 @@ module sprite_render(
     input      [15:0] pipe_load_addr,// 管道地址 80*500=40000
     // pipe_load_data 共享 bird_load_data，因为源头都是 sdram_wr_data
     
+    // 地面纹理加载接口 (新增)
+    input             base_load_en,
+    input      [13:0] base_load_addr,// 64*150=9600
+    
+    // 游戏状态
+    input             game_active,
+    input             frame_en, // 帧同步信号，用于更新滚动
+    
     // 最终像素输出
     output reg [15:0] pixel_out
 );
@@ -41,6 +49,11 @@ module sprite_render(
     parameter PIPE_H = 500; // 管道纹理高度
     parameter PIPE_GAP_H = 140; 
     parameter COLOR_PIPE = 16'h07E0; // 纯绿
+    
+    // 地面参数
+    parameter BASE_TEX_W = 64;  // 存储的纹理宽度 (必须是2的幂)
+    parameter BASE_H     = 150; 
+    parameter GROUND_Y   = 618; // 768 - 150
     
     // =========================================================
     // 1. 小鸟纹理存储 (Dual Port RAM)
@@ -74,7 +87,21 @@ module sprite_render(
                 pipe_ram[pipe_load_addr] <= bird_load_data;
         end
     end
-
+    
+    // =========================================================
+    // 1.8 地面纹理存储 (新增)
+    // 64 * 150 = 9600 words -> ~2 M9K
+    // =========================================================
+    reg [15:0] base_ram [0:9599];
+    reg [15:0] base_pixel_raw;
+    
+    always @(posedge bird_load_clk) begin
+        if(base_load_en) begin
+            if(base_load_addr < 9600)
+                base_ram[base_load_addr] <= bird_load_data;
+        end
+    end
+    
     // =========================================================
     // 2. 动画与读取逻辑
     // =========================================================
@@ -97,6 +124,35 @@ module sprite_render(
     wire [10:0] dx_corrected = (bird_dx >= 17) ? (bird_dx - 17) : (bird_dx + 33);
     assign bird_read_offset = bird_dy * BIRD_W + dx_corrected;
     
+    // --- 地面读取逻辑 (新增) ---
+    reg [5:0] base_scroll_x; // 0~63
+    
+    always @(posedge clk) begin
+        if(!rst_n) 
+            base_scroll_x <= 0;
+        else if(frame_en && game_active)
+            base_scroll_x <= base_scroll_x + 3; // 滚动速度 3
+    end
+    
+    reg [13:0] base_read_addr;
+    
+    always @(*) begin
+        base_read_addr = 0;
+        if(pixel_y >= GROUND_Y) begin
+            reg [5:0] tex_x;
+            reg [7:0] tex_y;
+            
+            // Texture X = (Screen X + Scroll Offset) % 64
+            // 只要取低6位即可自动实现 % 64
+            tex_x = pixel_x[5:0] + base_scroll_x;
+            
+            tex_y = pixel_y - GROUND_Y;
+            
+            if(tex_y < BASE_H)
+                base_read_addr = tex_y * BASE_TEX_W + tex_x;
+        end
+    end
+    
     // --- 管道读取逻辑 (纹理循环版) ---
     // 技巧：我们只存储了前50行 (0-49)。
     // 其中前 ~30 行是管口 (不可重复)，后 20 行是管身 (可以循环)。
@@ -111,9 +167,10 @@ module sprite_render(
     reg [11:0] pipe_read_addr;
     // 不再需要纯色标志位
     
-    // 定义分割点：前30行是管口，30-49行是循环体
-    localparam PIPE_SPLIT_Y = 30;
-    localparam PIPE_LOOP_H  = 20; // (50 - 30)
+    // 定义分割点：前40行是管口区域（含阴影过渡）
+    // 40行以后全部重复使用第40行的数据
+    localparam PIPE_SPLIT_Y =0; 
+    // localparam PIPE_LOOP_H  = 20; // 不再需要循环
 
     always @(*) begin
         pipe_read_addr = 0;
@@ -134,7 +191,7 @@ module sprite_render(
                 if(tex_y < PIPE_SPLIT_Y)
                     effective_y = tex_y;
                 else
-                    effective_y = PIPE_SPLIT_Y + (tex_y - PIPE_SPLIT_Y) % PIPE_LOOP_H;
+                    effective_y = PIPE_SPLIT_Y; // 锁定在第40行，消除拼接感
                     
                 pipe_read_addr = effective_y * PIPE_W + tex_x;
             end
@@ -145,7 +202,7 @@ module sprite_render(
                 if(tex_y < PIPE_SPLIT_Y)
                     effective_y = tex_y;
                 else
-                    effective_y = PIPE_SPLIT_Y + (tex_y - PIPE_SPLIT_Y) % PIPE_LOOP_H;
+                    effective_y = PIPE_SPLIT_Y; // 锁定在第40行
                     
                 pipe_read_addr = effective_y * PIPE_W + tex_x;
             end
@@ -165,7 +222,7 @@ module sprite_render(
                 if(tex_y < PIPE_SPLIT_Y)
                     effective_y = tex_y;
                 else
-                    effective_y = PIPE_SPLIT_Y + (tex_y - PIPE_SPLIT_Y) % PIPE_LOOP_H;
+                    effective_y = PIPE_SPLIT_Y; 
                     
                 pipe_read_addr = effective_y * PIPE_W + tex_x;
             end
@@ -175,7 +232,7 @@ module sprite_render(
                 if(tex_y < PIPE_SPLIT_Y)
                     effective_y = tex_y;
                 else
-                    effective_y = PIPE_SPLIT_Y + (tex_y - PIPE_SPLIT_Y) % PIPE_LOOP_H;
+                    effective_y = PIPE_SPLIT_Y; 
                     
                 pipe_read_addr = effective_y * PIPE_W + tex_x;
             end

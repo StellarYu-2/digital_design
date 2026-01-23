@@ -22,8 +22,12 @@ module sd_bmp_hdmi(
     output                tmds_clk_p,    // TMDS 时钟通道
     output                tmds_clk_n,
     output [2:0]          tmds_data_p,   // TMDS 数据通道
-    output [2:0]          tmds_data_n
+    output [2:0]          tmds_data_n,
+    //数码管接口
+    output [5:0]          seg_sel,       // 数码管位选
+    output [7:0]          seg_led        // 数码管段选
     );
+
 
 //parameter define 
 //SDRAM读写最大地址 1024 * 768 = 786432 (用于HDMI显示循环读取)
@@ -81,6 +85,8 @@ reg  [15:0]  sdram_rd_data_r; // 注册SDRAM数据以改善时序(可选)
 wire         collision;       // 碰撞检测信号
 wire         game_active;     // 游戏激活状态
 wire [1:0]   game_state;      // 游戏状态机 (0:IDLE, 1:PLAY, 2:OVER)
+wire         score_pulse;     // 得分脉冲
+wire [23:0]  score_bcd;       // BCD分数
 
 // SDRAM 读取地址控制 (用于切换背景/开始/结束画面)
 reg  [23:0]  current_rd_min_addr;
@@ -234,7 +240,8 @@ pipe_gen u_pipe_gen(
     .pipe1_x        (pipe1_x),
     .pipe1_gap_y    (pipe1_gap_y),
     .pipe2_x        (pipe2_x),
-    .pipe2_gap_y    (pipe2_gap_y)
+    .pipe2_gap_y    (pipe2_gap_y),
+    .score_pulse    (score_pulse)
 );
 
 // 3.5 碰撞检测模块
@@ -256,8 +263,19 @@ game_ctrl u_game_ctrl(
     .rst_n          (rst_n),
     .key_jump       (~key_jump),     // 高有效
     .collision      (collision),
+    .score_pulse    (score_pulse),
     .game_active    (game_active),
-    .state          (game_state)
+    .state          (game_state),
+    .score_bcd      (score_bcd)
+);
+
+// 3.7 数码管驱动模块
+seg_driver u_seg_driver(
+    .clk            (clk_50m), // 使用50MHz时钟进行扫描
+    .rst_n          (rst_n),
+    .data_bcd       (score_bcd),
+    .sel            (seg_sel),
+    .seg            (seg_led)
 );
 
 // 4. 精灵渲染模块 (替代原来的叠加逻辑)

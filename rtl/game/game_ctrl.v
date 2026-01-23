@@ -5,9 +5,11 @@ module game_ctrl(
     input      rst_n,
     input      key_jump,      // 按键输入 (高电平有效)
     input      collision,     // 碰撞信号
+    input      score_pulse,   // 得分脉冲
     
     output reg game_active,   // 游戏激活 (控制物理和管道)
-    output reg [1:0] state    // 游戏状态: 0=IDLE/START, 1=PLAY, 2=OVER
+    output reg [1:0] state,   // 游戏状态: 0=IDLE/START, 1=PLAY, 2=OVER
+    output reg [23:0] score_bcd // BCD分数
 );
 
     // 状态定义
@@ -64,6 +66,38 @@ module game_ctrl(
             
             default: next_state = S_IDLE;
         endcase
+    end
+    
+    // 分数计数逻辑 (BCD Counter)
+    always @(posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            score_bcd <= 0;
+        end else if(current_state == S_IDLE) begin
+            score_bcd <= 0; // 重置分数
+        end else if(current_state == S_PLAY && score_pulse) begin
+            // BCD 加法器
+            if(score_bcd[3:0] == 9) begin
+                score_bcd[3:0] <= 0;
+                if(score_bcd[7:4] == 9) begin
+                    score_bcd[7:4] <= 0;
+                    if(score_bcd[11:8] == 9) begin
+                        score_bcd[11:8] <= 0;
+                        if(score_bcd[15:12] == 9) begin
+                            score_bcd[15:12] <= 0;
+                            // ... 继续进位如果需要
+                        end else begin
+                            score_bcd[15:12] <= score_bcd[15:12] + 1;
+                        end
+                    end else begin
+                        score_bcd[11:8] <= score_bcd[11:8] + 1;
+                    end
+                end else begin
+                    score_bcd[7:4] <= score_bcd[7:4] + 1;
+                end
+            end else begin
+                score_bcd[3:0] <= score_bcd[3:0] + 1;
+            end
+        end
     end
     
     // 输出逻辑
