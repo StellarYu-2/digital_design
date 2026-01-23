@@ -277,16 +277,18 @@ module sprite_render(
     always @(*) begin
         // 优先级：小鸟 > 管道 > 背景
         if(is_bird_d1) begin
-             if(bird_pixel_raw == 16'h0000) // 调试蓝
-                 pixel_out = 16'h001F; 
-             else if(bird_pixel_raw == TRANSPARENT_COLOR) // 透明 (绿)
+             // Check if Green (Transparency) OR Black/Empty (0x0000)
+             if(bird_pixel_raw == TRANSPARENT_COLOR || bird_pixel_raw == 16'h0000) 
                  if(is_pipe1_d1 || is_pipe2_d1) pixel_out = pipe_pixel_raw; // 透出管道
                  else pixel_out = bg_data_d1;
              else
                  pixel_out = bird_pixel_raw;
         end
         else if(is_pipe1_d1 || is_pipe2_d1) begin
-             pixel_out = pipe_pixel_raw; // 全身都使用纹理
+             if(pipe_pixel_raw == TRANSPARENT_COLOR || pipe_pixel_raw == 16'h0000)
+                 pixel_out = bg_data_d1;
+             else
+                 pixel_out = pipe_pixel_raw; // 全身都使用纹理
         end
         else begin
              pixel_out = bg_data_d1;
