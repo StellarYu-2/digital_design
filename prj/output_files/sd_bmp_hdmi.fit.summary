@@ -1,14 +1,14 @@
-Fitter Status : Successful - Thu Jan 22 16:36:38 2026
+Fitter Status : Successful - Fri Jan 23 11:03:12 2026
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Full Version
 Revision Name : sd_bmp_hdmi
 Top-level Entity Name : sd_bmp_hdmi
 Family : Cyclone IV E
 Device : EP4CE10F17C8
 Timing Models : Final
-Total logic elements : 2,484 / 10,320 ( 24 % )
-    Total combinational functions : 2,308 / 10,320 ( 22 % )
-    Dedicated logic registers : 1,009 / 10,320 ( 10 % )
-Total registers : 1025
+Total logic elements : 2,739 / 10,320 ( 27 % )
+    Total combinational functions : 2,536 / 10,320 ( 25 % )
+    Dedicated logic registers : 1,019 / 10,320 ( 10 % )
+Total registers : 1035
 Total pins : 54 / 180 ( 30 % )
 Total virtual pins : 0
 Total memory bits : 116,768 / 423,936 ( 28 % )

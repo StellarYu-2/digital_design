@@ -190,6 +190,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sdram_data
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sdram_cs_n
 set_location_assignment PIN_E16 -to key_jump
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to key_jump
+set_global_assignment -name VERILOG_FILE ../rtl/game/game_ctrl.v
+set_global_assignment -name VERILOG_FILE ../rtl/game/collision_det.v
 set_global_assignment -name VERILOG_FILE ../rtl/game/sprite_render.v
 set_global_assignment -name VERILOG_FILE ../rtl/game/pipe_gen.v
 set_global_assignment -name VERILOG_FILE ../rtl/game/game_param.v

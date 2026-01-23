@@ -77,6 +77,36 @@ wire [11:0]  bird_y;          // 小鸟Y坐标
 wire [15:0]  final_pixel_data;// 最终送往HDMI的颜色数据
 reg  [15:0]  sdram_rd_data_r; // 注册SDRAM数据以改善时序(可选)
 
+// 新增游戏控制信号
+wire         collision;       // 碰撞检测信号
+wire         game_active;     // 游戏激活状态
+wire [1:0]   game_state;      // 游戏状态机 (0:IDLE, 1:PLAY, 2:OVER)
+
+// SDRAM 读取地址控制 (用于切换背景/开始/结束画面)
+reg  [23:0]  current_rd_min_addr;
+wire [23:0]  current_rd_max_addr;
+
+localparam MEM_ADDR_BG        = 24'd0;           
+localparam MEM_ADDR_START     = 24'd786432;      
+localparam MEM_ADDR_GAMEOVER  = 24'd1572864;     
+
+always @(*) begin
+    case(game_state)
+        2'd0: current_rd_min_addr = MEM_ADDR_START;    // IDLE
+        2'd1: current_rd_min_addr = MEM_ADDR_BG;       // PLAY
+        2'd2: current_rd_min_addr = MEM_ADDR_GAMEOVER; // OVER
+        default: current_rd_min_addr = MEM_ADDR_START;
+    endcase
+end
+
+assign current_rd_max_addr = current_rd_min_addr + SDRAM_DISP_ADDR;
+
+// 隐藏精灵逻辑 (非游戏状态下，将精灵移出屏幕)
+wire [11:0] bird_x_render = (game_state == 2'd1) ? bird_x : 12'd2000;
+wire [11:0] bird_y_render = (game_state == 2'd1) ? bird_y : 12'd2000;
+wire [11:0] pipe1_x_render = (game_state == 2'd1) ? pipe1_x : 12'd2000;
+wire [11:0] pipe2_x_render = (game_state == 2'd1) ? pipe2_x : 12'd2000;
+
 //*****************************************************
 //**                    main code
 //*****************************************************
@@ -166,7 +196,7 @@ bird_ctrl u_bird_ctrl(
     .clk            (hdmi_clk),      // 使用HDMI时钟，避免跨时钟域问题
     .rst_n          (rst_n),
     .key_jump       (~key_jump),     // 按键低电平有效，取反后变为高有效
-    .game_active    (1'b1),          // 强制激活游戏状态
+    .game_active    (game_active),   // 使用游戏激活信号
     .frame_en_unused(internal_frame_en), // 连接内部帧信号(仅做参考)
     .bird_y         (bird_y),
     .bird_x         (bird_x),
@@ -177,13 +207,36 @@ bird_ctrl u_bird_ctrl(
 pipe_gen u_pipe_gen(
     .clk            (hdmi_clk),
     .rst_n          (rst_n),
-    .game_active    (1'b1),
+    .game_active    (game_active),   // 使用游戏激活信号
     .frame_en       (internal_frame_en), // 使用内部产生的稳定60Hz信号
     .random_seed    (16'd0), // 暂时用0，后续可用像素计数器
     .pipe1_x        (pipe1_x),
     .pipe1_gap_y    (pipe1_gap_y),
     .pipe2_x        (pipe2_x),
     .pipe2_gap_y    (pipe2_gap_y)
+);
+
+// 3.5 碰撞检测模块
+collision_det u_collision_det(
+    .clk            (hdmi_clk),
+    .rst_n          (rst_n),
+    .bird_x         (bird_x),
+    .bird_y         (bird_y),
+    .pipe1_x        (pipe1_x),
+    .pipe1_gap_y    (pipe1_gap_y),
+    .pipe2_x        (pipe2_x),
+    .pipe2_gap_y    (pipe2_gap_y),
+    .collision      (collision)
+);
+
+// 3.6 游戏状态控制模块
+game_ctrl u_game_ctrl(
+    .clk            (hdmi_clk),
+    .rst_n          (rst_n),
+    .key_jump       (~key_jump),     // 高有效
+    .collision      (collision),
+    .game_active    (game_active),
+    .state          (game_state)
 );
 
 // 4. 精灵渲染模块 (替代原来的叠加逻辑)
@@ -194,11 +247,11 @@ sprite_render u_sprite_render(
     .rst_n          (rst_n),
     .pixel_x        (pixel_xpos),
     .pixel_y        (pixel_ypos),
-    .bird_x         (bird_x),
-    .bird_y         (bird_y),
-    .pipe1_x        (pipe1_x),
+    .bird_x         (bird_x_render), // 使用带隐藏逻辑的坐标
+    .bird_y         (bird_y_render),
+    .pipe1_x        (pipe1_x_render),
     .pipe1_gap_y    (pipe1_gap_y),
-    .pipe2_x        (pipe2_x),
+    .pipe2_x        (pipe2_x_render),
     .pipe2_gap_y    (pipe2_gap_y),
     .bg_data        (rd_data), // 来自SDRAM的背景流
     
@@ -297,10 +350,10 @@ sdram_top u_sdram_top(
     .rd_clk             (hdmi_clk),           // 读端口FIFO: 读时钟
     .rd_en              (rd_en   ),           // 读端口FIFO: 读使能
     .rd_data            (rd_data ),           // 读端口FIFO: 读数据
-    .rd_min_addr        (24'd0   ),           // 读SDRAM的起始地址 (暂时只读背景)
-    .rd_max_addr        (SDRAM_DISP_ADDR),    // 读SDRAM的结束地址 (背景图大小)
+    .rd_min_addr        (current_rd_min_addr),// 读SDRAM的起始地址 (动态切换)
+    .rd_max_addr        (current_rd_max_addr),// 读SDRAM的结束地址
     .rd_len             (10'd512 ),           // 从SDRAM中读数据时的突发长度
-    .rd_load            (~rst_n),             // 读端口复位: 复位读地址,清空读FIFO
+    .rd_load            (~rst_n | frame_en),  // 读端口复位: 复位读地址,清空读FIFO
 
      //用户控制端口
     .sdram_read_valid   (1'b1    ),           // SDRAM 读使能

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sd_bmp_hdmi
-Thu Jan 22 16:36:20 2026
+Fri Jan 23 11:03:01 2026
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -18,97 +18,99 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
  10. State Machine - |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|cur_state
  11. State Machine - |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|state
  12. State Machine - |sd_bmp_hdmi|sprite_render:u_sprite_render|bird_anim_idx
- 13. Registers Removed During Synthesis
- 14. Removed Registers Triggering Further Register Optimizations
- 15. General Register Statistics
- 16. Inverted Register Statistics
- 17. Registers Packed Into Inferred Megafunctions
- 18. Multiplexer Restructuring Statistics (Restructuring Performed)
- 19. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component
- 20. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated
- 21. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_677:rdptr_g1p
- 22. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_2lc:wrptr_g1p
- 23. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|altsyncram_em31:fifo_ram
- 24. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|dffpipe_pe9:rs_brp
- 25. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|dffpipe_pe9:rs_bwp
- 26. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:rs_dgwp
- 27. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:rs_dgwp|dffpipe_qe9:dffpipe10
- 28. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:ws_dgrp
- 29. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:ws_dgrp|dffpipe_qe9:dffpipe10
- 30. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component
- 31. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated
- 32. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_677:rdptr_g1p
- 33. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_2lc:wrptr_g1p
- 34. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|altsyncram_em31:fifo_ram
- 35. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|alt_synch_pipe_e98:rs_dgwp
- 36. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|alt_synch_pipe_e98:rs_dgwp|dffpipe_pe9:dffpipe3
- 37. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|dffpipe_pe9:ws_brp
- 38. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|dffpipe_pe9:ws_bwp
- 39. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|alt_synch_pipe_0e8:ws_dgrp
- 40. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|alt_synch_pipe_0e8:ws_dgrp|dffpipe_re9:dffpipe4
- 41. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
- 42. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
- 43. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
- 44. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
- 45. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
- 46. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
- 47. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
- 48. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
- 49. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
- 50. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
- 51. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
- 52. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
- 53. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
- 54. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
- 55. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
- 56. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
- 57. Source assignments for sprite_render:u_sprite_render|altsyncram:bird_ram_rtl_0|altsyncram_49d1:auto_generated
- 58. Parameter Settings for User Entity Instance: Top-level Entity: |sd_bmp_hdmi
- 59. Parameter Settings for User Entity Instance: bird_ctrl:u_bird_ctrl
- 60. Parameter Settings for User Entity Instance: pipe_gen:u_pipe_gen
- 61. Parameter Settings for User Entity Instance: sprite_render:u_sprite_render
- 62. Parameter Settings for User Entity Instance: pll_clk:pll_clk_inst|altpll:altpll_component
- 63. Parameter Settings for User Entity Instance: pll_hdmi:pll_hdmi_inst|altpll:altpll_component
- 64. Parameter Settings for User Entity Instance: sd_multi_pic:u_sd_multi_pic
- 65. Parameter Settings for User Entity Instance: sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init
- 66. Parameter Settings for User Entity Instance: sd_ctrl_top:u_sd_ctrl_top|sd_write:u_sd_write
- 67. Parameter Settings for User Entity Instance: sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component
- 68. Parameter Settings for User Entity Instance: sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component
- 69. Parameter Settings for User Entity Instance: sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl
- 70. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|video_driver:u_video_driver
- 71. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b
- 72. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g
- 73. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r
- 74. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
- 75. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
- 76. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
- 77. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
- 78. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
- 79. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
- 80. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
- 81. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
- 82. Parameter Settings for Inferred Entity Instance: sprite_render:u_sprite_render|altsyncram:bird_ram_rtl_0
- 83. Parameter Settings for Inferred Entity Instance: sprite_render:u_sprite_render|lpm_mult:Mult0
- 84. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod0
- 85. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod1
- 86. altpll Parameter Settings by Entity Instance
- 87. dcfifo Parameter Settings by Entity Instance
- 88. altsyncram Parameter Settings by Entity Instance
- 89. lpm_mult Parameter Settings by Entity Instance
- 90. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk"
- 91. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r"
- 92. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g"
- 93. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0"
- 94. Port Connectivity Checks: "hdmi_top:u_hdmi_top"
- 95. Port Connectivity Checks: "sdram_top:u_sdram_top"
- 96. Port Connectivity Checks: "sd_ctrl_top:u_sd_ctrl_top"
- 97. Port Connectivity Checks: "sd_multi_pic:u_sd_multi_pic"
- 98. Port Connectivity Checks: "pll_clk:pll_clk_inst"
- 99. Port Connectivity Checks: "pipe_gen:u_pipe_gen"
-100. Port Connectivity Checks: "bird_ctrl:u_bird_ctrl"
-101. Elapsed Time Per Partition
-102. Analysis & Synthesis Messages
-103. Analysis & Synthesis Suppressed Messages
+ 13. State Machine - |sd_bmp_hdmi|game_ctrl:u_game_ctrl|current_state
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Registers Packed Into Inferred Megafunctions
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component
+ 21. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated
+ 22. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_677:rdptr_g1p
+ 23. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_2lc:wrptr_g1p
+ 24. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|altsyncram_em31:fifo_ram
+ 25. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|dffpipe_pe9:rs_brp
+ 26. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|dffpipe_pe9:rs_bwp
+ 27. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:rs_dgwp
+ 28. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:rs_dgwp|dffpipe_qe9:dffpipe10
+ 29. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:ws_dgrp
+ 30. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:ws_dgrp|dffpipe_qe9:dffpipe10
+ 31. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component
+ 32. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated
+ 33. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_677:rdptr_g1p
+ 34. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_2lc:wrptr_g1p
+ 35. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|altsyncram_em31:fifo_ram
+ 36. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|alt_synch_pipe_e98:rs_dgwp
+ 37. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|alt_synch_pipe_e98:rs_dgwp|dffpipe_pe9:dffpipe3
+ 38. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|dffpipe_pe9:ws_brp
+ 39. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|dffpipe_pe9:ws_bwp
+ 40. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|alt_synch_pipe_0e8:ws_dgrp
+ 41. Source assignments for sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|alt_synch_pipe_0e8:ws_dgrp|dffpipe_re9:dffpipe4
+ 42. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
+ 43. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
+ 44. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
+ 45. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
+ 46. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
+ 47. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
+ 48. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
+ 49. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
+ 50. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
+ 51. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
+ 52. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
+ 53. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
+ 54. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
+ 55. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
+ 56. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
+ 57. Source assignments for hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated
+ 58. Source assignments for sprite_render:u_sprite_render|altsyncram:bird_ram_rtl_0|altsyncram_49d1:auto_generated
+ 59. Parameter Settings for User Entity Instance: Top-level Entity: |sd_bmp_hdmi
+ 60. Parameter Settings for User Entity Instance: bird_ctrl:u_bird_ctrl
+ 61. Parameter Settings for User Entity Instance: pipe_gen:u_pipe_gen
+ 62. Parameter Settings for User Entity Instance: collision_det:u_collision_det
+ 63. Parameter Settings for User Entity Instance: sprite_render:u_sprite_render
+ 64. Parameter Settings for User Entity Instance: pll_clk:pll_clk_inst|altpll:altpll_component
+ 65. Parameter Settings for User Entity Instance: pll_hdmi:pll_hdmi_inst|altpll:altpll_component
+ 66. Parameter Settings for User Entity Instance: sd_multi_pic:u_sd_multi_pic
+ 67. Parameter Settings for User Entity Instance: sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init
+ 68. Parameter Settings for User Entity Instance: sd_ctrl_top:u_sd_ctrl_top|sd_write:u_sd_write
+ 69. Parameter Settings for User Entity Instance: sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component
+ 70. Parameter Settings for User Entity Instance: sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component
+ 71. Parameter Settings for User Entity Instance: sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl
+ 72. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|video_driver:u_video_driver
+ 73. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b
+ 74. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g
+ 75. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r
+ 76. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
+ 77. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
+ 78. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
+ 79. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
+ 80. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
+ 81. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
+ 82. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component
+ 83. Parameter Settings for User Entity Instance: hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component
+ 84. Parameter Settings for Inferred Entity Instance: sprite_render:u_sprite_render|altsyncram:bird_ram_rtl_0
+ 85. Parameter Settings for Inferred Entity Instance: sprite_render:u_sprite_render|lpm_mult:Mult0
+ 86. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod0
+ 87. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod1
+ 88. altpll Parameter Settings by Entity Instance
+ 89. dcfifo Parameter Settings by Entity Instance
+ 90. altsyncram Parameter Settings by Entity Instance
+ 91. lpm_mult Parameter Settings by Entity Instance
+ 92. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk"
+ 93. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r"
+ 94. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g"
+ 95. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0"
+ 96. Port Connectivity Checks: "hdmi_top:u_hdmi_top"
+ 97. Port Connectivity Checks: "sdram_top:u_sdram_top"
+ 98. Port Connectivity Checks: "sd_ctrl_top:u_sd_ctrl_top"
+ 99. Port Connectivity Checks: "sd_multi_pic:u_sd_multi_pic"
+100. Port Connectivity Checks: "pll_clk:pll_clk_inst"
+101. Port Connectivity Checks: "pipe_gen:u_pipe_gen"
+102. Port Connectivity Checks: "bird_ctrl:u_bird_ctrl"
+103. Elapsed Time Per Partition
+104. Analysis & Synthesis Messages
+105. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -134,15 +136,15 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jan 22 16:36:20 2026       ;
+; Analysis & Synthesis Status        ; Successful - Fri Jan 23 11:03:01 2026       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; sd_bmp_hdmi                                 ;
 ; Top-level Entity Name              ; sd_bmp_hdmi                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 2,575                                       ;
-;     Total combinational functions  ; 2,302                                       ;
-;     Dedicated logic registers      ; 1,009                                       ;
-; Total registers                    ; 1025                                        ;
+; Total logic elements               ; 2,807                                       ;
+;     Total combinational functions  ; 2,530                                       ;
+;     Dedicated logic registers      ; 1,019                                       ;
+; Total registers                    ; 1035                                        ;
 ; Total pins                         ; 54                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 116,768                                     ;
@@ -261,6 +263,8 @@ applicable agreement for further details.
 +-----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path  ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                   ; Library ;
 +-----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; ../rtl/game/game_ctrl.v           ; yes             ; User Verilog HDL File        ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/rtl/game/game_ctrl.v           ;         ;
+; ../rtl/game/collision_det.v       ; yes             ; User Verilog HDL File        ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/rtl/game/collision_det.v       ;         ;
 ; ../rtl/game/sprite_render.v       ; yes             ; User Verilog HDL File        ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/rtl/game/sprite_render.v       ;         ;
 ; ../rtl/game/pipe_gen.v            ; yes             ; User Verilog HDL File        ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/rtl/game/pipe_gen.v            ;         ;
 ; ../rtl/game/bird_ctrl.v           ; yes             ; User Verilog HDL File        ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/rtl/game/bird_ctrl.v           ;         ;
@@ -373,20 +377,20 @@ applicable agreement for further details.
 +---------------------------------------------+---------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                       ;
 +---------------------------------------------+---------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 2,575                                                                                       ;
+; Estimated Total logic elements              ; 2,807                                                                                       ;
 ;                                             ;                                                                                             ;
-; Total combinational functions               ; 2302                                                                                        ;
+; Total combinational functions               ; 2530                                                                                        ;
 ; Logic element usage by number of LUT inputs ;                                                                                             ;
-;     -- 4 input functions                    ; 758                                                                                         ;
-;     -- 3 input functions                    ; 600                                                                                         ;
-;     -- <=2 input functions                  ; 944                                                                                         ;
+;     -- 4 input functions                    ; 819                                                                                         ;
+;     -- 3 input functions                    ; 725                                                                                         ;
+;     -- <=2 input functions                  ; 986                                                                                         ;
 ;                                             ;                                                                                             ;
 ; Logic elements by mode                      ;                                                                                             ;
-;     -- normal mode                          ; 1462                                                                                        ;
-;     -- arithmetic mode                      ; 840                                                                                         ;
+;     -- normal mode                          ; 1600                                                                                        ;
+;     -- arithmetic mode                      ; 930                                                                                         ;
 ;                                             ;                                                                                             ;
-; Total registers                             ; 1025                                                                                        ;
-;     -- Dedicated logic registers            ; 1009                                                                                        ;
+; Total registers                             ; 1035                                                                                        ;
+;     -- Dedicated logic registers            ; 1019                                                                                        ;
 ;     -- I/O registers                        ; 32                                                                                          ;
 ;                                             ;                                                                                             ;
 ; I/O pins                                    ; 54                                                                                          ;
@@ -396,9 +400,9 @@ applicable agreement for further details.
 ;     -- PLLs                                 ; 2                                                                                           ;
 ;                                             ;                                                                                             ;
 ; Maximum fan-out node                        ; pll_clk:pll_clk_inst|altpll:altpll_component|pll_clk_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 607                                                                                         ;
-; Total fan-out                               ; 11731                                                                                       ;
-; Average fan-out                             ; 3.36                                                                                        ;
+; Maximum fan-out                             ; 609                                                                                         ;
+; Total fan-out                               ; 12387                                                                                       ;
+; Average fan-out                             ; 3.32                                                                                        ;
 +---------------------------------------------+---------------------------------------------------------------------------------------------+
 
 
@@ -407,9 +411,11 @@ applicable agreement for further details.
 +-----------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                      ; Library Name ;
 +-----------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |sd_bmp_hdmi                                        ; 2302 (31)         ; 1009 (15)    ; 116768      ; 0            ; 0       ; 0         ; 54   ; 0            ; |sd_bmp_hdmi                                                                                                                                                                             ; work         ;
-;    |bird_ctrl:u_bird_ctrl|                          ; 92 (92)           ; 45 (45)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl                                                                                                                                                       ; work         ;
-;    |hdmi_top:u_hdmi_top|                            ; 441 (0)           ; 198 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top                                                                                                                                                         ; work         ;
+; |sd_bmp_hdmi                                        ; 2530 (69)         ; 1019 (17)    ; 116768      ; 0            ; 0       ; 0         ; 54   ; 0            ; |sd_bmp_hdmi                                                                                                                                                                             ; work         ;
+;    |bird_ctrl:u_bird_ctrl|                          ; 102 (102)         ; 45 (45)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl                                                                                                                                                       ; work         ;
+;    |collision_det:u_collision_det|                  ; 165 (165)         ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|collision_det:u_collision_det                                                                                                                                               ; work         ;
+;    |game_ctrl:u_game_ctrl|                          ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl                                                                                                                                                       ; work         ;
+;    |hdmi_top:u_hdmi_top|                            ; 440 (0)           ; 198 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top                                                                                                                                                         ; work         ;
 ;       |dvi_transmitter_top:u_rgb2dvi_0|             ; 302 (0)           ; 150 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0                                                                                                                         ; work         ;
 ;          |asyn_rst_syn:reset_syn|                   ; 0 (0)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|asyn_rst_syn:reset_syn                                                                                                  ; work         ;
 ;          |dvi_encoder:encoder_b|                    ; 87 (87)           ; 37 (37)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b                                                                                                   ; work         ;
@@ -443,16 +449,16 @@ applicable agreement for further details.
 ;             |ddio_out:u_ddio_out_p|                 ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p                                                                   ; work         ;
 ;                |altddio_out:ALTDDIO_OUT_component|  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component                                 ; work         ;
 ;                   |ddio_out_p9j:auto_generated|     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated     ; work         ;
-;       |video_driver:u_video_driver|                 ; 139 (139)         ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|video_driver:u_video_driver                                                                                                                             ; work         ;
-;    |pipe_gen:u_pipe_gen|                            ; 522 (94)          ; 60 (60)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen                                                                                                                                                         ; work         ;
+;       |video_driver:u_video_driver|                 ; 138 (138)         ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|video_driver:u_video_driver                                                                                                                             ; work         ;
+;    |pipe_gen:u_pipe_gen|                            ; 551 (119)         ; 60 (60)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen                                                                                                                                                         ; work         ;
 ;       |lpm_divide:Mod0|                             ; 212 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0                                                                                                                                         ; work         ;
 ;          |lpm_divide_abm:auto_generated|            ; 212 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0|lpm_divide_abm:auto_generated                                                                                                           ; work         ;
 ;             |sign_div_unsign_vlh:divider|           ; 212 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0|lpm_divide_abm:auto_generated|sign_div_unsign_vlh:divider                                                                               ; work         ;
 ;                |alt_u_div_i7f:divider|              ; 212 (212)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0|lpm_divide_abm:auto_generated|sign_div_unsign_vlh:divider|alt_u_div_i7f:divider                                                         ; work         ;
-;       |lpm_divide:Mod1|                             ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1                                                                                                                                         ; work         ;
-;          |lpm_divide_bbm:auto_generated|            ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated                                                                                                           ; work         ;
-;             |sign_div_unsign_0mh:divider|           ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_0mh:divider                                                                               ; work         ;
-;                |alt_u_div_k7f:divider|              ; 216 (216)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_0mh:divider|alt_u_div_k7f:divider                                                         ; work         ;
+;       |lpm_divide:Mod1|                             ; 220 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1                                                                                                                                         ; work         ;
+;          |lpm_divide_bbm:auto_generated|            ; 220 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated                                                                                                           ; work         ;
+;             |sign_div_unsign_0mh:divider|           ; 220 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_0mh:divider                                                                               ; work         ;
+;                |alt_u_div_k7f:divider|              ; 220 (220)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_0mh:divider|alt_u_div_k7f:divider                                                         ; work         ;
 ;    |pll_clk:pll_clk_inst|                           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pll_clk:pll_clk_inst                                                                                                                                                        ; work         ;
 ;       |altpll:altpll_component|                     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pll_clk:pll_clk_inst|altpll:altpll_component                                                                                                                                ; work         ;
 ;          |pll_clk_altpll:auto_generated|            ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pll_clk:pll_clk_inst|altpll:altpll_component|pll_clk_altpll:auto_generated                                                                                                  ; work         ;
@@ -463,12 +469,12 @@ applicable agreement for further details.
 ;       |sd_init:u_sd_init|                           ; 120 (120)         ; 111 (111)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init                                                                                                                                 ; work         ;
 ;       |sd_read:u_sd_read|                           ; 108 (108)         ; 102 (102)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read                                                                                                                                 ; work         ;
 ;    |sd_multi_pic:u_sd_multi_pic|                    ; 209 (209)         ; 116 (116)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic                                                                                                                                                 ; work         ;
-;    |sdram_top:u_sdram_top|                          ; 472 (0)           ; 342 (0)      ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top                                                                                                                                                       ; work         ;
+;    |sdram_top:u_sdram_top|                          ; 491 (0)           ; 344 (0)      ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top                                                                                                                                                       ; work         ;
 ;       |sdram_controller:u_sdram_controller|         ; 188 (0)           ; 102 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller                                                                                                                   ; work         ;
 ;          |sdram_cmd:u_sdram_cmd|                    ; 79 (79)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd                                                                                             ; work         ;
 ;          |sdram_ctrl:u_sdram_ctrl|                  ; 107 (107)         ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl                                                                                           ; work         ;
 ;          |sdram_data:u_sdram_data|                  ; 2 (2)             ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_data:u_sdram_data                                                                                           ; work         ;
-;       |sdram_fifo_ctrl:u_sdram_fifo_ctrl|           ; 284 (62)          ; 240 (44)     ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl                                                                                                                     ; work         ;
+;       |sdram_fifo_ctrl:u_sdram_fifo_ctrl|           ; 303 (81)          ; 242 (46)     ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl                                                                                                                     ; work         ;
 ;          |rdfifo:u_rdfifo|                          ; 111 (0)           ; 98 (0)       ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo                                                                                                     ; work         ;
 ;             |dcfifo:dcfifo_component|               ; 111 (0)           ; 98 (0)       ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component                                                                             ; work         ;
 ;                |dcfifo_aol1:auto_generated|         ; 111 (16)          ; 98 (37)      ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated                                                  ; work         ;
@@ -495,15 +501,13 @@ applicable agreement for further details.
 ;                   |alt_synch_pipe_vd8:rs_dgwp|      ; 0 (0)             ; 11 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:rs_dgwp                       ; work         ;
 ;                      |dffpipe_qe9:dffpipe10|        ; 0 (0)             ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:rs_dgwp|dffpipe_qe9:dffpipe10 ; work         ;
 ;                   |altsyncram_em31:fifo_ram|        ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|altsyncram_em31:fifo_ram                         ; work         ;
-;                   |cmpr_c66:rdempty_eq_comp_lsb|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|cmpr_c66:rdempty_eq_comp_lsb                     ; work         ;
-;                   |cmpr_c66:wrfull_eq_comp1_lsb|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|cmpr_c66:wrfull_eq_comp1_lsb                     ; work         ;
 ;                   |dffpipe_pe9:rs_brp|              ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|dffpipe_pe9:rs_brp                               ; work         ;
 ;                   |dffpipe_pe9:rs_bwp|              ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|dffpipe_pe9:rs_bwp                               ; work         ;
-;                   |mux_j28:rdemp_eq_comp_lsb_mux|   ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:rdemp_eq_comp_lsb_mux                    ; work         ;
+;                   |mux_j28:rdemp_eq_comp_lsb_mux|   ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:rdemp_eq_comp_lsb_mux                    ; work         ;
 ;                   |mux_j28:rdemp_eq_comp_msb_mux|   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:rdemp_eq_comp_msb_mux                    ; work         ;
-;                   |mux_j28:wrfull_eq_comp_lsb_mux|  ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:wrfull_eq_comp_lsb_mux                   ; work         ;
+;                   |mux_j28:wrfull_eq_comp_lsb_mux|  ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:wrfull_eq_comp_lsb_mux                   ; work         ;
 ;                   |mux_j28:wrfull_eq_comp_msb_mux|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:wrfull_eq_comp_msb_mux                   ; work         ;
-;    |sprite_render:u_sprite_render|                  ; 303 (280)         ; 19 (19)      ; 84000       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sprite_render:u_sprite_render                                                                                                                                               ; work         ;
+;    |sprite_render:u_sprite_render|                  ; 266 (243)         ; 19 (19)      ; 84000       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sprite_render:u_sprite_render                                                                                                                                               ; work         ;
 ;       |altsyncram:bird_ram_rtl_0|                   ; 0 (0)             ; 0 (0)        ; 84000       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sprite_render:u_sprite_render|altsyncram:bird_ram_rtl_0                                                                                                                     ; work         ;
 ;          |altsyncram_49d1:auto_generated|           ; 0 (0)             ; 0 (0)        ; 84000       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sprite_render:u_sprite_render|altsyncram:bird_ram_rtl_0|altsyncram_49d1:auto_generated                                                                                      ; work         ;
 ;       |lpm_mult:Mult0|                              ; 23 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sprite_render:u_sprite_render|lpm_mult:Mult0                                                                                                                                ; work         ;
@@ -589,6 +593,18 @@ Encoding Type:  One-Hot
 +------------------+-------------------------------------------------------+
 
 
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------+
+; State Machine - |sd_bmp_hdmi|game_ctrl:u_game_ctrl|current_state                          ;
++----------------------+----------------------+----------------------+----------------------+
+; Name                 ; current_state.S_IDLE ; current_state.S_OVER ; current_state.S_PLAY ;
++----------------------+----------------------+----------------------+----------------------+
+; current_state.S_IDLE ; 0                    ; 0                    ; 0                    ;
+; current_state.S_PLAY ; 1                    ; 0                    ; 1                    ;
+; current_state.S_OVER ; 1                    ; 1                    ; 0                    ;
++----------------------+----------------------+----------------------+----------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                                                                                                                                                                                                                ;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
@@ -611,13 +627,13 @@ Encoding Type:  One-Hot
 ; sd_ctrl_top:u_sd_ctrl_top|sd_write:u_sd_write|wr_en_d0                                                                                                   ; Stuck at GND due to stuck port data_in                                                                                 ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_write:u_sd_write|wr_en_d1                                                                                                   ; Stuck at GND due to stuck port data_in                                                                                 ;
 ; pll_clk:pll_clk_inst|altpll:altpll_component|pll_clk_altpll:auto_generated|pll_lock_sync                                                                 ; Stuck at VCC due to stuck port data_in                                                                                 ;
-; bird_ctrl:u_bird_ctrl|bird_x[9,10]                                                                                                                       ; Stuck at GND due to stuck port clock_enable                                                                            ;
-; bird_ctrl:u_bird_ctrl|bird_x[8]                                                                                                                          ; Stuck at VCC due to stuck port clock_enable                                                                            ;
-; bird_ctrl:u_bird_ctrl|bird_x[6,7]                                                                                                                        ; Stuck at GND due to stuck port clock_enable                                                                            ;
-; bird_ctrl:u_bird_ctrl|bird_x[5]                                                                                                                          ; Stuck at VCC due to stuck port clock_enable                                                                            ;
-; bird_ctrl:u_bird_ctrl|bird_x[4]                                                                                                                          ; Stuck at GND due to stuck port clock_enable                                                                            ;
-; bird_ctrl:u_bird_ctrl|bird_x[2,3]                                                                                                                        ; Stuck at VCC due to stuck port clock_enable                                                                            ;
-; bird_ctrl:u_bird_ctrl|bird_x[0,1]                                                                                                                        ; Stuck at GND due to stuck port clock_enable                                                                            ;
+; bird_ctrl:u_bird_ctrl|bird_x[9..11]                                                                                                                      ; Stuck at GND due to stuck port data_in                                                                                 ;
+; bird_ctrl:u_bird_ctrl|bird_x[8]                                                                                                                          ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; bird_ctrl:u_bird_ctrl|bird_x[6,7]                                                                                                                        ; Stuck at GND due to stuck port data_in                                                                                 ;
+; bird_ctrl:u_bird_ctrl|bird_x[5]                                                                                                                          ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; bird_ctrl:u_bird_ctrl|bird_x[4]                                                                                                                          ; Stuck at GND due to stuck port data_in                                                                                 ;
+; bird_ctrl:u_bird_ctrl|bird_x[2,3]                                                                                                                        ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; bird_ctrl:u_bird_ctrl|bird_x[0,1]                                                                                                                        ; Stuck at GND due to stuck port data_in                                                                                 ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|q_m_reg[2]                                                                     ; Stuck at GND due to stuck port data_in                                                                                 ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|c1_reg                                                                         ; Stuck at GND due to stuck port data_in                                                                                 ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|c0_reg                                                                         ; Stuck at GND due to stuck port data_in                                                                                 ;
@@ -662,6 +678,9 @@ Encoding Type:  One-Hot
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|de_reg                                                                         ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g|de_reg                           ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|q_m_reg[8]                                                                     ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|q_m_reg[1]                       ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[0..7]                                                                              ; Merged with sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[8]                                   ;
+; game_ctrl:u_game_ctrl|game_active                                                                                                                        ; Merged with game_ctrl:u_game_ctrl|state[0]                                                                             ;
+; game_ctrl:u_game_ctrl|key_d0                                                                                                                             ; Merged with bird_ctrl:u_bird_ctrl|key_d0                                                                               ;
+; game_ctrl:u_game_ctrl|key_d1                                                                                                                             ; Merged with bird_ctrl:u_bird_ctrl|key_d1                                                                               ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|cmd_rd[1..7,40,44,46]                                                                                        ; Merged with sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|cmd_rd[0]                                                      ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[4]                                                                                 ; Merged with sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[1]                                   ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[8]                                                                                 ; Merged with sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[2]                                   ;
@@ -680,8 +699,6 @@ Encoding Type:  One-Hot
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|bit_cnt[0]                                                         ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|bit_cnt[0]             ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|bit_cnt[0]                                                           ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|bit_cnt[0]             ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|bit_cnt[0]                                                           ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|bit_cnt[0]             ;
-; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|dout[9]                                                                        ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|dout[2]                          ;
-; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|datain_rise_shift[3]                                               ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|datain_fall_shift[3] ;
 ; frame_cnt[20]                                                                                                                                            ; Merged with bird_ctrl:u_bird_ctrl|clk_cnt[20]                                                                          ;
 ; frame_cnt[15]                                                                                                                                            ; Merged with bird_ctrl:u_bird_ctrl|clk_cnt[15]                                                                          ;
 ; frame_cnt[10]                                                                                                                                            ; Merged with bird_ctrl:u_bird_ctrl|clk_cnt[10]                                                                          ;
@@ -703,6 +720,8 @@ Encoding Type:  One-Hot
 ; frame_cnt[4]                                                                                                                                             ; Merged with bird_ctrl:u_bird_ctrl|clk_cnt[4]                                                                           ;
 ; frame_cnt[3]                                                                                                                                             ; Merged with bird_ctrl:u_bird_ctrl|clk_cnt[3]                                                                           ;
 ; frame_cnt[1]                                                                                                                                             ; Merged with bird_ctrl:u_bird_ctrl|clk_cnt[1]                                                                           ;
+; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|dout[9]                                                                        ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|dout[2]                          ;
+; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|datain_rise_shift[3]                                               ; Merged with hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|datain_fall_shift[3] ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sw_bank_en                                                                                       ; Stuck at GND due to stuck port data_in                                                                                 ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[8]                                                                                 ; Stuck at GND due to stuck port data_in                                                                                 ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[0]                                                                                 ; Stuck at GND due to stuck port data_in                                                                                 ;
@@ -712,15 +731,13 @@ Encoding Type:  One-Hot
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|n1d[0,1]                                                                       ; Lost fanout                                                                                                            ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g|n1d[0,1]                                                                       ; Lost fanout                                                                                                            ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|n1d[0,1]                                                                       ; Lost fanout                                                                                                            ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rd_load_r1                                                                                       ; Stuck at GND due to stuck port data_in                                                                                 ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rd_load_r2                                                                                       ; Stuck at GND due to stuck port data_in                                                                                 ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|cur_state~11                                                                                                 ; Lost fanout                                                                                                            ;
 ; sd_multi_pic:u_sd_multi_pic|state~8                                                                                                                      ; Lost fanout                                                                                                            ;
 ; sd_multi_pic:u_sd_multi_pic|state~9                                                                                                                      ; Lost fanout                                                                                                            ;
 ; sd_multi_pic:u_sd_multi_pic|state~10                                                                                                                     ; Lost fanout                                                                                                            ;
 ; sprite_render:u_sprite_render|bird_anim_idx~5                                                                                                            ; Lost fanout                                                                                                            ;
 ; sprite_render:u_sprite_render|bird_anim_idx.00                                                                                                           ; Stuck at GND due to stuck port data_in                                                                                 ;
-; Total Number of Removed Registers = 256                                                                                                                  ;                                                                                                                        ;
+; Total Number of Removed Registers = 258                                                                                                                  ;                                                                                                                        ;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -729,12 +746,12 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
 ; Register name                                                                                   ; Reason for Removal        ; Registers Removed due to This Register                                                ;
 +-------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
-; pll_clk:pll_clk_inst|altpll:altpll_component|pll_clk_altpll:auto_generated|pll_lock_sync        ; Stuck at VCC              ; bird_ctrl:u_bird_ctrl|bird_x[10], bird_ctrl:u_bird_ctrl|bird_x[9],                    ;
-;                                                                                                 ; due to stuck port data_in ; bird_ctrl:u_bird_ctrl|bird_x[8], bird_ctrl:u_bird_ctrl|bird_x[7],                     ;
-;                                                                                                 ;                           ; bird_ctrl:u_bird_ctrl|bird_x[6], bird_ctrl:u_bird_ctrl|bird_x[5],                     ;
-;                                                                                                 ;                           ; bird_ctrl:u_bird_ctrl|bird_x[4], bird_ctrl:u_bird_ctrl|bird_x[3],                     ;
-;                                                                                                 ;                           ; bird_ctrl:u_bird_ctrl|bird_x[2], bird_ctrl:u_bird_ctrl|bird_x[1],                     ;
-;                                                                                                 ;                           ; bird_ctrl:u_bird_ctrl|bird_x[0],                                                      ;
+; pll_clk:pll_clk_inst|altpll:altpll_component|pll_clk_altpll:auto_generated|pll_lock_sync        ; Stuck at VCC              ; bird_ctrl:u_bird_ctrl|bird_x[11], bird_ctrl:u_bird_ctrl|bird_x[10],                   ;
+;                                                                                                 ; due to stuck port data_in ; bird_ctrl:u_bird_ctrl|bird_x[9], bird_ctrl:u_bird_ctrl|bird_x[8],                     ;
+;                                                                                                 ;                           ; bird_ctrl:u_bird_ctrl|bird_x[7], bird_ctrl:u_bird_ctrl|bird_x[6],                     ;
+;                                                                                                 ;                           ; bird_ctrl:u_bird_ctrl|bird_x[5], bird_ctrl:u_bird_ctrl|bird_x[4],                     ;
+;                                                                                                 ;                           ; bird_ctrl:u_bird_ctrl|bird_x[3], bird_ctrl:u_bird_ctrl|bird_x[2],                     ;
+;                                                                                                 ;                           ; bird_ctrl:u_bird_ctrl|bird_x[1], bird_ctrl:u_bird_ctrl|bird_x[0],                     ;
 ;                                                                                                 ;                           ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rw_bank_flag,                 ;
 ;                                                                                                 ;                           ; sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|cmd_rd[47],                               ;
 ;                                                                                                 ;                           ; sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|cmd_rd[45],                               ;
@@ -745,9 +762,7 @@ Encoding Type:  One-Hot
 ;                                                                                                 ;                           ; pipe_gen:u_pipe_gen|pipe2_gap_y[11], pipe_gen:u_pipe_gen|pipe2_gap_y[10],             ;
 ;                                                                                                 ;                           ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sw_bank_en,                   ;
 ;                                                                                                 ;                           ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[8],             ;
-;                                                                                                 ;                           ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[0],             ;
-;                                                                                                 ;                           ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rd_load_r1,                   ;
-;                                                                                                 ;                           ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rd_load_r2                    ;
+;                                                                                                 ;                           ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[0]              ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_write:u_sd_write|wr_en_d0                                          ; Stuck at GND              ; sd_ctrl_top:u_sd_ctrl_top|sd_write:u_sd_write|wr_busy,                                ;
 ;                                                                                                 ; due to stuck port data_in ; sd_ctrl_top:u_sd_ctrl_top|sd_write:u_sd_write|res_en,                                 ;
 ;                                                                                                 ;                           ; sd_ctrl_top:u_sd_ctrl_top|sd_write:u_sd_write|sd_cs,                                  ;
@@ -786,10 +801,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1009  ;
-; Number of registers using Synchronous Clear  ; 173   ;
-; Number of registers using Synchronous Load   ; 55    ;
-; Number of registers using Asynchronous Clear ; 885   ;
+; Total registers                              ; 1019  ;
+; Number of registers using Synchronous Clear  ; 158   ;
+; Number of registers using Synchronous Load   ; 21    ;
+; Number of registers using Asynchronous Clear ; 895   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 538   ;
 ; Number of registers using Preset             ; 0     ;
@@ -803,16 +818,8 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; pipe_gen:u_pipe_gen|pipe1_gap_y[8]                                                                                                                                ; 2       ;
 ; pipe_gen:u_pipe_gen|pipe1_gap_y[7]                                                                                                                                ; 2       ;
-; pipe_gen:u_pipe_gen|pipe1_x[9]                                                                                                                                    ; 5       ;
-; pipe_gen:u_pipe_gen|pipe1_x[6]                                                                                                                                    ; 5       ;
-; pipe_gen:u_pipe_gen|pipe1_x[4]                                                                                                                                    ; 7       ;
-; pipe_gen:u_pipe_gen|pipe1_x[3]                                                                                                                                    ; 4       ;
 ; pipe_gen:u_pipe_gen|pipe2_gap_y[8]                                                                                                                                ; 2       ;
 ; pipe_gen:u_pipe_gen|pipe2_gap_y[5]                                                                                                                                ; 2       ;
-; pipe_gen:u_pipe_gen|pipe2_x[9]                                                                                                                                    ; 5       ;
-; pipe_gen:u_pipe_gen|pipe2_x[8]                                                                                                                                    ; 5       ;
-; pipe_gen:u_pipe_gen|pipe2_x[7]                                                                                                                                    ; 5       ;
-; pipe_gen:u_pipe_gen|pipe2_x[2]                                                                                                                                    ; 4       ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|sd_cs                                                                                                                 ; 2       ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|sd_cs                                                                                                                 ; 2       ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|sd_mosi                                                                                                               ; 1       ;
@@ -842,18 +849,24 @@ Encoding Type:  One-Hot
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|rdemp_eq_comp_msb_aeb                  ; 1       ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_677:rdptr_g1p|counter3a0 ; 8       ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_2lc:wrptr_g1p|counter6a0 ; 8       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_2lc:wrptr_g1p|counter6a0 ; 7       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_677:rdptr_g1p|parity4    ; 4       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_2lc:wrptr_g1p|parity7    ; 4       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|rdemp_eq_comp_lsb_aeb                  ; 2       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|rdemp_eq_comp_msb_aeb                  ; 2       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_677:rdptr_g1p|counter3a0 ; 8       ;
-; bird_ctrl:u_bird_ctrl|bird_y[7]                                                                                                                                   ; 5       ;
-; bird_ctrl:u_bird_ctrl|bird_y[8]                                                                                                                                   ; 5       ;
+; bird_ctrl:u_bird_ctrl|bird_y[8]                                                                                                                                   ; 8       ;
+; bird_ctrl:u_bird_ctrl|bird_y[7]                                                                                                                                   ; 8       ;
+; pipe_gen:u_pipe_gen|pipe1_x[6]                                                                                                                                    ; 7       ;
+; pipe_gen:u_pipe_gen|pipe1_x[4]                                                                                                                                    ; 8       ;
+; pipe_gen:u_pipe_gen|pipe1_x[3]                                                                                                                                    ; 5       ;
+; pipe_gen:u_pipe_gen|pipe1_x[9]                                                                                                                                    ; 7       ;
+; pipe_gen:u_pipe_gen|pipe2_x[8]                                                                                                                                    ; 7       ;
+; pipe_gen:u_pipe_gen|pipe2_x[7]                                                                                                                                    ; 7       ;
+; pipe_gen:u_pipe_gen|pipe2_x[2]                                                                                                                                    ; 5       ;
+; pipe_gen:u_pipe_gen|pipe2_x[9]                                                                                                                                    ; 7       ;
 ; pipe_gen:u_pipe_gen|pipe2_gap_y[3]                                                                                                                                ; 2       ;
 ; pipe_gen:u_pipe_gen|pipe2_gap_y[2]                                                                                                                                ; 2       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_2lc:wrptr_g1p|parity7    ; 4       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_677:rdptr_g1p|parity4    ; 4       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_2lc:wrptr_g1p|counter6a0 ; 8       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_677:rdptr_g1p|parity4    ; 4       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_2lc:wrptr_g1p|parity7    ; 4       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|rdemp_eq_comp_lsb_aeb                  ; 3       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|rdemp_eq_comp_msb_aeb                  ; 3       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_677:rdptr_g1p|counter3a0 ; 8       ;
 ; pipe_gen:u_pipe_gen|lfsr[15]                                                                                                                                      ; 4       ;
 ; pipe_gen:u_pipe_gen|lfsr[13]                                                                                                                                      ; 6       ;
 ; pipe_gen:u_pipe_gen|lfsr[11]                                                                                                                                      ; 5       ;
@@ -862,6 +875,8 @@ Encoding Type:  One-Hot
 ; pipe_gen:u_pipe_gen|lfsr[6]                                                                                                                                       ; 6       ;
 ; pipe_gen:u_pipe_gen|lfsr[5]                                                                                                                                       ; 6       ;
 ; pipe_gen:u_pipe_gen|lfsr[0]                                                                                                                                       ; 3       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_2lc:wrptr_g1p|parity7    ; 4       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_677:rdptr_g1p|parity4    ; 4       ;
 ; Total number of inverted registers = 61                                                                                                                           ;         ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
@@ -880,46 +895,52 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|cmd_bit_cnt[3]                                       ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|rx_data_cnt[2]                                       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl|init_ar_cnt[0] ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|poweron_cnt[11]                                      ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|bird_y[6]                                                                  ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|bmp_head_cnt[4]                                                      ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|cmd_bit_cnt[1]                                       ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|rx_data_cnt[5]                                       ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl|init_ar_cnt[2] ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|poweron_cnt[8]                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|bmp_head_cnt[2]                                                      ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|res_flag                                             ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|res_bit_cnt[5]                                       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|rx_bit_cnt[0]                                        ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|res_bit_cnt[0]                                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|rx_bit_cnt[2]                                        ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|res_flag                                             ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|res_bit_cnt[5]                                       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rgb888_data[20]                                                      ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_load_addr[9]                                                                                ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[23]                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[2]                         ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[18]                        ;
-; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[20]                        ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|res_bit_cnt[2]                                       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rgb888_data[10]                                                      ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_load_addr[0]                                                                                ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[22]                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[1]                         ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[10]                        ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[17]                        ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[18]                        ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl|init_state[2]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe1_x[2]                                                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe2_x[3]                                                                   ;
 ; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|dout[7]                ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g|dout[4]                ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|dout[5]                ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g|dout[5]                ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|dout[6]                ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|val_en_cnt[1]                                                        ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|col_word_cnt[5]                                                      ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|velocity[8]                                                                ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rd_sec_addr[17]                                                      ;
-; 6:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rd_sec_addr[4]                                                       ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|cmd_bit_cnt[2]                                       ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|col_word_cnt[3]                                                      ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|bird_y[3]                                                                  ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|velocity[9]                                                                ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rd_sec_addr[16]                                                      ;
+; 6:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rd_sec_addr[5]                                                       ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|cmd_bit_cnt[5]                                       ;
 ; 20:1               ; 3 bits    ; 39 LEs        ; 6 LEs                ; 33 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|rd_ctrl_cnt[1]                                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|bird_y[7]                                                                  ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_cmd_r[1]   ;
-; 10:1               ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[5]    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe1_x[4]                                                                   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe2_x[7]                                                                   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|bird_y[8]                                                                  ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[2]    ;
 ; 23:1               ; 2 bits    ; 30 LEs        ; 8 LEs                ; 22 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_ba[1]      ;
-; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[9]    ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[7]    ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[12]   ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[3]    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_cs                                                                  ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|Mux0             ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|Add16                  ;
 ; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g|Add16                  ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|Add16                  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|video_driver:u_video_driver|video_rgb[9]                                     ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|video_driver:u_video_driver|video_rgb[3]                                     ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|Selector0                                                                  ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|Selector35                                                           ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|Selector32                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
@@ -1361,6 +1382,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; PIPE_SPEED     ; 3     ; Signed Integer                          ;
 ; PIPE_GAP_H     ; 200   ; Signed Integer                          ;
 +----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: collision_det:u_collision_det ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; BIRD_W         ; 50    ; Signed Integer                                    ;
+; BIRD_H         ; 35    ; Signed Integer                                    ;
+; PIPE_W         ; 80    ; Signed Integer                                    ;
+; PIPE_GAP_H     ; 140   ; Signed Integer                                    ;
+; GROUND_Y       ; 668   ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -2752,15 +2787,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------+-------+----------+------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "hdmi_top:u_hdmi_top"                                                                    ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; video_vs ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; h_disp   ; Output ; Info     ; Explicitly unconnected                                                              ;
-; v_disp   ; Output ; Info     ; Explicitly unconnected                                                              ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------+
+; Port Connectivity Checks: "hdmi_top:u_hdmi_top"     ;
++--------+--------+----------+------------------------+
+; Port   ; Type   ; Severity ; Details                ;
++--------+--------+----------+------------------------+
+; h_disp ; Output ; Info     ; Explicitly unconnected ;
+; v_disp ; Output ; Info     ; Explicitly unconnected ;
++--------+--------+----------+------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2780,11 +2814,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; wr_max_addr[8]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
 ; wr_len[8..0]        ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; wr_len[9]           ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; rd_min_addr         ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; rd_max_addr         ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; rd_max_addr[19..18] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; rd_max_addr[23..20] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; rd_max_addr[17..0]  ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; rd_min_addr[23..21] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; rd_len[8..0]        ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; rd_len[9]           ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
 ; sdram_read_valid    ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
@@ -2828,19 +2858,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+-------+----------+----------------+
 ; Port        ; Type  ; Severity ; Details        ;
 +-------------+-------+----------+----------------+
-; game_active ; Input ; Info     ; Stuck at VCC   ;
 ; random_seed ; Input ; Info     ; Stuck at GND   ;
 +-------------+-------+----------+----------------+
 
 
-+----------------------------------------------------------+
-; Port Connectivity Checks: "bird_ctrl:u_bird_ctrl"        ;
-+-------------+--------+----------+------------------------+
-; Port        ; Type   ; Severity ; Details                ;
-+-------------+--------+----------+------------------------+
-; game_active ; Input  ; Info     ; Stuck at VCC           ;
-; bird_angle  ; Output ; Info     ; Explicitly unconnected ;
-+-------------+--------+----------+------------------------+
++---------------------------------------------------------+
+; Port Connectivity Checks: "bird_ctrl:u_bird_ctrl"       ;
++------------+--------+----------+------------------------+
+; Port       ; Type   ; Severity ; Details                ;
++------------+--------+----------+------------------------+
+; bird_angle ; Output ; Info     ; Explicitly unconnected ;
++------------+--------+----------+------------------------+
 
 
 +-------------------------------+
@@ -2848,7 +2876,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -2858,9 +2886,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Thu Jan 22 16:36:15 2026
+    Info: Processing started: Fri Jan 23 11:02:56 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sd_bmp_hdmi -c sd_bmp_hdmi
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/yu.win-h4mb5vm86kc.000/desktop/digital/rtl/game/game_ctrl.v
+    Info (12023): Found entity 1: game_ctrl
+Info (12021): Found 1 design units, including 1 entities, in source file /users/yu.win-h4mb5vm86kc.000/desktop/digital/rtl/game/collision_det.v
+    Info (12023): Found entity 1: collision_det
 Info (12021): Found 1 design units, including 1 entities, in source file /users/yu.win-h4mb5vm86kc.000/desktop/digital/rtl/game/sprite_render.v
     Info (12023): Found entity 1: sprite_render
 Info (12021): Found 1 design units, including 1 entities, in source file /users/yu.win-h4mb5vm86kc.000/desktop/digital/rtl/game/pipe_gen.v
@@ -2919,7 +2951,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
 Info (12021): Found 1 design units, including 1 entities, in source file /users/yu.win-h4mb5vm86kc.000/desktop/digital/rtl/sd_bmp_hdmi.v
     Info (12023): Found entity 1: sd_bmp_hdmi
 Info (12127): Elaborating entity "sd_bmp_hdmi" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at sd_bmp_hdmi.v(74): object "frame_en" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at sd_bmp_hdmi.v(102): truncated value with size 32 to match size of target (24)
 Info (12128): Elaborating entity "bird_ctrl" for hierarchy "bird_ctrl:u_bird_ctrl"
 Warning (10230): Verilog HDL assignment warning at bird_ctrl.v(71): truncated value with size 32 to match size of target (12)
 Warning (10230): Verilog HDL assignment warning at bird_ctrl.v(72): truncated value with size 32 to match size of target (12)
@@ -2948,6 +2980,16 @@ Warning (10230): Verilog HDL assignment warning at pipe_gen.v(51): truncated val
 Warning (10230): Verilog HDL assignment warning at pipe_gen.v(54): truncated value with size 32 to match size of target (12)
 Warning (10230): Verilog HDL assignment warning at pipe_gen.v(59): truncated value with size 32 to match size of target (12)
 Warning (10230): Verilog HDL assignment warning at pipe_gen.v(60): truncated value with size 32 to match size of target (12)
+Info (12128): Elaborating entity "collision_det" for hierarchy "collision_det:u_collision_det"
+Warning (10230): Verilog HDL assignment warning at collision_det.v(52): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at collision_det.v(53): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at collision_det.v(56): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at collision_det.v(57): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at collision_det.v(58): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at collision_det.v(75): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at collision_det.v(76): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at collision_det.v(77): truncated value with size 32 to match size of target (12)
+Info (12128): Elaborating entity "game_ctrl" for hierarchy "game_ctrl:u_game_ctrl"
 Info (12128): Elaborating entity "sprite_render" for hierarchy "sprite_render:u_sprite_render"
 Warning (10036): Verilog HDL or VHDL warning at sprite_render.v(57): object "anim_frame_cnt" assigned a value but never read
 Warning (10230): Verilog HDL assignment warning at sprite_render.v(96): truncated value with size 32 to match size of target (11)
@@ -3311,16 +3353,16 @@ Info (17016): Found the following redundant logic cells in design
 Info (144001): Generated suppressed messages file C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/output_files/sd_bmp_hdmi.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 2 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2734 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2967 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 34 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 2622 logic cells
+    Info (21061): Implemented 2855 logic cells
     Info (21064): Implemented 48 RAM segments
     Info (21065): Implemented 2 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 4731 megabytes
-    Info: Processing ended: Thu Jan 22 16:36:20 2026
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 4739 megabytes
+    Info: Processing ended: Fri Jan 23 11:03:01 2026
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:05
 
