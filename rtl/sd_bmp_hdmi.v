@@ -129,30 +129,51 @@ wire [11:0]  pipe2_x, pipe2_gap_y;
 reg          bird_load_en;
 reg  [12:0]  bird_load_addr; // 扩大地址位宽：1750 * 3 = 5250，需要13位 (2^13=8192)
 
+// Pipe加载逻辑信号
+reg          pipe_load_en;
+reg  [15:0]  pipe_load_addr; // 80 * 500 = 40000
+
 // 检测是否在加载小鸟 (BIRD0, BIRD1, BIRD2)
 // BIRD0: 2552896, BIRD1: 2554646, BIRD2: 2556396
 wire is_loading_bird;
 assign is_loading_bird = (sdram_base_addr >= 24'd2552896) && (sdram_base_addr <= 24'd2556396);
+
+// 检测是否在加载管道
+// PIPE: 2512896
+wire is_loading_pipe;
+assign is_loading_pipe = (sdram_base_addr == 24'd2512896);
 
 // 产生写入地址
 always @(posedge clk_50m or negedge rst_n) begin
     if(!rst_n) begin
         bird_load_addr <= 0;
         bird_load_en <= 0;
+        pipe_load_addr <= 0;
+        pipe_load_en <= 0;
     end else begin
-        // 当正在读取小鸟图片，且数据有效时 (只要 sdram_wr_en 有效即可)
+        // --- 小鸟加载逻辑 ---
         if(is_loading_bird && sdram_wr_en) begin
             bird_load_en <= 1'b1;
             bird_load_addr <= bird_load_addr + 1'b1;
         end else begin
             bird_load_en <= 1'b0;
-            // 只有在切换到非小鸟图片，或者切换到第一张小鸟图片时复位
-            // 注意：BIRD1 和 BIRD2 切换时不要复位，要接着写
-            if(pic_switch) begin
-                if(sdram_base_addr == 24'd2552896) // BIRD0 Start
-                     bird_load_addr <= 0;
-                // else if BIRD1/2, keep address
-            end
+        end
+        
+        // --- 管道加载逻辑 ---
+        if(is_loading_pipe && sdram_wr_en) begin
+            pipe_load_en <= 1'b1;
+            pipe_load_addr <= pipe_load_addr + 1'b1;
+        end else begin
+            pipe_load_en <= 1'b0;
+        end
+
+        // 图片切换时复位地址
+        if(pic_switch) begin
+            if(sdram_base_addr == 24'd2552896) // BIRD0 Start
+                 bird_load_addr <= 0;
+            
+            if(sdram_base_addr == 24'd2512896) // PIPE Start
+                 pipe_load_addr <= 0;
         end
     end
 end
@@ -260,6 +281,9 @@ sprite_render u_sprite_render(
     .bird_load_en   (bird_load_en),
     .bird_load_addr (bird_load_addr),
     .bird_load_data (sdram_wr_data), // 抓取写入SDRAM的数据
+    
+    .pipe_load_en   (pipe_load_en),
+    .pipe_load_addr (pipe_load_addr),
     
     .pixel_out      (sprite_pixel_out)
 );

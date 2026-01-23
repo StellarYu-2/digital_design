@@ -19,11 +19,16 @@ module sprite_render(
     // 背景数据输入 (来自SDRAM)
     input      [15:0] bg_data,
     
-    // 小鸟纹理加载接口 (写入端口)
+    // 小鸟纹理加载接口
     input             bird_load_clk, // 写时钟 (50MHz)
     input             bird_load_en,  // 写使能
-    input      [12:0] bird_load_addr,// 输入的连续地址
+    input      [12:0] bird_load_addr,// 小鸟地址 5250
     input      [15:0] bird_load_data,// 写数据
+    
+    // 管道纹理加载接口 (新增)
+    input             pipe_load_en,
+    input      [15:0] pipe_load_addr,// 管道地址 80*500=40000
+    // pipe_load_data 共享 bird_load_data，因为源头都是 sdram_wr_data
     
     // 最终像素输出
     output reg [15:0] pixel_out
@@ -33,105 +38,173 @@ module sprite_render(
     parameter BIRD_W = 50;
     parameter BIRD_H = 35;
     parameter PIPE_W = 80;
-    parameter PIPE_GAP_H = 140; // 管道开口大小
+    parameter PIPE_H = 500; // 管道纹理高度
+    parameter PIPE_GAP_H = 140; 
     parameter COLOR_PIPE = 16'h07E0; // 纯绿
     
     // =========================================================
     // 1. 小鸟纹理存储 (Dual Port RAM)
-    // 大小: 50*35 * 3张 = 5250 words.
     // =========================================================
     reg [15:0] bird_ram [0:5249];
     reg [15:0] bird_pixel_raw;
     
-    // --- 写入逻辑 (简单直接写入) ---
-    // 由于 sd_multi_pic 已经剔除了 Padding，这里收到的就是纯像素流
     always @(posedge bird_load_clk) begin
         if(bird_load_en) begin
-            // 简单保护，防止溢出
             if(bird_load_addr < 5250)
                 bird_ram[bird_load_addr] <= bird_load_data;
         end
     end
     
-    // --- 动画控制逻辑 (暂时禁用，固定显示 mid) ---
-    reg [5:0]  anim_frame_cnt; 
-    reg [1:0]  bird_anim_idx;
+    // =========================================================
+    // 1.5 管道纹理存储 (优化版)
+    // 原始需求: 80 * 500 = 40,000 words -> 爆内存 (需要70个M9K)
+    // 优化方案: 只存储管口纹理 (80 * 50 = 4000 words) -> 只需要 1 个 M9K
+    // =========================================================
+    // 假设素材的前50行是管口细节，后面是重复的管身
+    parameter PIPE_TEX_H = 50; 
     
-    always @(posedge clk) begin
-        if(!rst_n) begin
-             anim_frame_cnt <= 0;
-             // 固定显示第2张图 (index 1)，即 bird_mid
-             bird_anim_idx <= 2'd1; 
-        end 
-        // 暂时注释掉动画切换代码
-        /*
-        else if(pixel_y == 0 && pixel_x == 0) begin 
-            anim_frame_cnt <= anim_frame_cnt + 1'b1;
-            if(anim_frame_cnt == 10) begin 
-                anim_frame_cnt <= 0;
-                if(bird_anim_idx == 2) bird_anim_idx <= 0;
-                else bird_anim_idx <= bird_anim_idx + 1'b1;
-            end
+    reg [15:0] pipe_ram [0:3999]; // 80 * 50 = 4000
+    reg [15:0] pipe_pixel_raw;
+    
+    always @(posedge bird_load_clk) begin
+        if(pipe_load_en) begin
+            // 这是一个过滤器：虽然SD卡会发来40000个数据，我们只存前4000个
+            // 也就是只存图片的前50行
+            if(pipe_load_addr < 4000)
+                pipe_ram[pipe_load_addr] <= bird_load_data;
         end
-        */
     end
 
-    // --- 读取逻辑 ---
+    // =========================================================
+    // 2. 动画与读取逻辑
+    // =========================================================
+    
+    // --- 小鸟读取逻辑 ---
+    // 保持原来的逻辑，这里为了简洁省略部分注释
+    reg [1:0]  bird_anim_idx;
+    always @(posedge clk) begin
+        if(!rst_n) bird_anim_idx <= 2'd1; 
+    end
+
     wire [12:0] bird_read_addr_base;
     wire [12:0] bird_read_offset;
     wire [10:0] bird_dx = pixel_x - bird_x[10:0];
     wire [10:0] bird_dy = pixel_y - bird_y[10:0];
     
-    // 动画地址偏移: 0, 1750, 3500
     assign bird_read_addr_base = (bird_anim_idx == 0) ? 13'd0 : 
                                  (bird_anim_idx == 1) ? 13'd1750 : 13'd3500;
                                  
-    // 增加校准偏移量：修复循环位移问题
-    // 现象：屁股在头前 -> 说明图像左移了 -> 我们需要读取更前面的数据？
-    // 尝试 offset + 25 像素
-    // 简单做法：我们只修正行内偏移。
-    // 行内 50 像素。 (dx + correction) % 50
-    // 如果 dx + 25 >= 50, 则 dx - 25.
-    
     wire [10:0] dx_corrected = (bird_dx >= 17) ? (bird_dx - 17) : (bird_dx + 33);
-    
     assign bird_read_offset = bird_dy * BIRD_W + dx_corrected;
     
+    // --- 管道读取逻辑 (纹理循环版) ---
+    // 技巧：我们只存储了前50行 (0-49)。
+    // 其中前 ~30 行是管口 (不可重复)，后 20 行是管身 (可以循环)。
+    // 这样可以用极小的内存渲染无限长的有纹理管道。
+    
+    // 辅助变量
+    wire [11:0] p1_gap_top = pipe1_gap_y - (PIPE_GAP_H/2);
+    wire [11:0] p1_gap_bot = pipe1_gap_y + (PIPE_GAP_H/2);
+    wire [11:0] p2_gap_top = pipe2_gap_y - (PIPE_GAP_H/2);
+    wire [11:0] p2_gap_bot = pipe2_gap_y + (PIPE_GAP_H/2);
+    
+    reg [11:0] pipe_read_addr;
+    // 不再需要纯色标志位
+    
+    // 定义分割点：前30行是管口，30-49行是循环体
+    localparam PIPE_SPLIT_Y = 30;
+    localparam PIPE_LOOP_H  = 20; // (50 - 30)
+
+    always @(*) begin
+        pipe_read_addr = 0;
+        
+        // --- 管道1 ---
+        if(pixel_x >= pipe1_x[10:0] && pixel_x < pipe1_x[10:0] + PIPE_W) begin
+            reg [10:0] tex_x;
+            reg [10:0] tex_y;
+            reg [10:0] effective_y;
+            
+            tex_x = pixel_x - pipe1_x[10:0];
+            
+            if(pixel_y < p1_gap_top) begin
+                // 上管 (Top Pipe)
+                tex_y = (p1_gap_top - 1) - pixel_y;
+                
+                // 纹理坐标映射逻辑
+                if(tex_y < PIPE_SPLIT_Y)
+                    effective_y = tex_y;
+                else
+                    effective_y = PIPE_SPLIT_Y + (tex_y - PIPE_SPLIT_Y) % PIPE_LOOP_H;
+                    
+                pipe_read_addr = effective_y * PIPE_W + tex_x;
+            end
+            else if(pixel_y > p1_gap_bot) begin
+                // 下管 (Bottom Pipe)
+                tex_y = pixel_y - p1_gap_bot;
+                
+                if(tex_y < PIPE_SPLIT_Y)
+                    effective_y = tex_y;
+                else
+                    effective_y = PIPE_SPLIT_Y + (tex_y - PIPE_SPLIT_Y) % PIPE_LOOP_H;
+                    
+                pipe_read_addr = effective_y * PIPE_W + tex_x;
+            end
+        end
+        
+        // --- 管道2 ---
+        else if(pixel_x >= pipe2_x[10:0] && pixel_x < pipe2_x[10:0] + PIPE_W) begin
+            reg [10:0] tex_x;
+            reg [10:0] tex_y;
+            reg [10:0] effective_y;
+            
+            tex_x = pixel_x - pipe2_x[10:0];
+            
+            if(pixel_y < p2_gap_top) begin
+                tex_y = (p2_gap_top - 1) - pixel_y;
+                
+                if(tex_y < PIPE_SPLIT_Y)
+                    effective_y = tex_y;
+                else
+                    effective_y = PIPE_SPLIT_Y + (tex_y - PIPE_SPLIT_Y) % PIPE_LOOP_H;
+                    
+                pipe_read_addr = effective_y * PIPE_W + tex_x;
+            end
+            else if(pixel_y > p2_gap_bot) begin
+                tex_y = pixel_y - p2_gap_bot;
+                
+                if(tex_y < PIPE_SPLIT_Y)
+                    effective_y = tex_y;
+                else
+                    effective_y = PIPE_SPLIT_Y + (tex_y - PIPE_SPLIT_Y) % PIPE_LOOP_H;
+                    
+                pipe_read_addr = effective_y * PIPE_W + tex_x;
+            end
+        end
+    end
+    
+    // 内存读取 (同步)
     always @(posedge clk) begin
-        // 地址 = 基地址 + 偏移
         bird_pixel_raw <= bird_ram[bird_read_addr_base + bird_read_offset];
+        pipe_pixel_raw <= pipe_ram[pipe_read_addr];
     end
     
     // =========================================================
-    // 2. 区域判定 logic
+    // 3. 区域判定 & 输出
     // =========================================================
     
-    // 小鸟区域判定
     wire is_bird_region;
     assign is_bird_region = (pixel_x >= bird_x[10:0]) && 
                             (pixel_x < bird_x[10:0] + BIRD_W) &&
                             (pixel_y >= bird_y[10:0]) && 
                             (pixel_y < bird_y[10:0] + BIRD_H);
                             
-    // 管道1区域判定
-    wire is_pipe1;
-    wire [11:0] p1_gap_top = pipe1_gap_y - (PIPE_GAP_H/2);
-    wire [11:0] p1_gap_bot = pipe1_gap_y + (PIPE_GAP_H/2);
+    wire is_pipe1 = (pixel_x >= pipe1_x[10:0]) && (pixel_x < pipe1_x[10:0] + PIPE_W) &&
+                    (pixel_y < p1_gap_top || pixel_y > p1_gap_bot);
+                    
+    wire is_pipe2 = (pixel_x >= pipe2_x[10:0]) && (pixel_x < pipe2_x[10:0] + PIPE_W) &&
+                    (pixel_y < p2_gap_top || pixel_y > p2_gap_bot);
     
-    assign is_pipe1 = (pixel_x >= pipe1_x[10:0]) && (pixel_x < pipe1_x[10:0] + PIPE_W) &&
-                      (pixel_y < p1_gap_top || pixel_y > p1_gap_bot);
-                      
-    // 管道2区域判定
-    wire is_pipe2;
-    wire [11:0] p2_gap_top = pipe2_gap_y - (PIPE_GAP_H/2);
-    wire [11:0] p2_gap_bot = pipe2_gap_y + (PIPE_GAP_H/2);
-    
-    assign is_pipe2 = (pixel_x >= pipe2_x[10:0]) && (pixel_x < pipe2_x[10:0] + PIPE_W) &&
-                      (pixel_y < p2_gap_top || pixel_y > p2_gap_bot);
-
-    // =========================================================
-    // 3. 输出多路选择
-    // =========================================================
+    // 延迟对齐
     reg is_bird_d1;
     reg is_pipe1_d1, is_pipe2_d1;
     reg [15:0] bg_data_d1;
@@ -146,19 +219,16 @@ module sprite_render(
     always @(*) begin
         // 优先级：小鸟 > 管道 > 背景
         if(is_bird_d1) begin
-             // 调试模式：
-             // 1. 如果读到纯黑(0000)，显示深蓝色(001F)，帮助判断数据缺失区域
-             // 2. 如果读到纯白(FFFF)，视为透明
-             if(bird_pixel_raw == 16'h0000)
-                 pixel_out = 16'h001F; // 调试蓝：表示此处RAM无数据
-             else if(bird_pixel_raw == 16'hFFFF) 
-                 if(is_pipe1_d1 || is_pipe2_d1) pixel_out = COLOR_PIPE;
+             if(bird_pixel_raw == 16'h0000) // 调试蓝
+                 pixel_out = 16'h001F; 
+             else if(bird_pixel_raw == 16'hFFFF) // 透明
+                 if(is_pipe1_d1 || is_pipe2_d1) pixel_out = pipe_pixel_raw; // 透出管道
                  else pixel_out = bg_data_d1;
              else
                  pixel_out = bird_pixel_raw;
         end
         else if(is_pipe1_d1 || is_pipe2_d1) begin
-             pixel_out = COLOR_PIPE; 
+             pixel_out = pipe_pixel_raw; // 全身都使用纹理
         end
         else begin
              pixel_out = bg_data_d1;
