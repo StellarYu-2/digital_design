@@ -23,7 +23,7 @@ module collision_det(
     parameter BIRD_W     = 50;
     parameter BIRD_H     = 35;
     parameter PIPE_W     = 80;
-    parameter PIPE_GAP_H = 140; // 注意：sprite_render里是140，pipe_gen里是200？需要核实
+    parameter PIPE_GAP_H = 220; // 增大碰撞检测缝隙 (原来是140)
     // 检查 sprite_render.v: parameter PIPE_GAP_H = 140; 
     // 检查 pipe_gen.v: parameter PIPE_GAP_H = 200; 
     // 以 sprite_render (视觉) 为准，或者取更严格的判定。

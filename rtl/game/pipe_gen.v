@@ -15,9 +15,9 @@ module pipe_gen(
 );
 
     parameter PIPE_START_X = 600;        // 调试：初始位置改在屏幕内
-    parameter PIPE_DIST    = 300;        // 两根管道间隔变小以便观察
+    parameter PIPE_DIST    = 350;        // 增大管道间距 (适当放宽)
     parameter PIPE_SPEED   = 3;          // 移动速度
-    parameter PIPE_GAP_H   = 200;        // 缝隙高度
+    parameter PIPE_GAP_H   = 220;        // 增大缝隙高度 (原来是200)
     parameter BIRD_X_pos   = 300;        // 小鸟位置
     parameter PIPE_W       = 80;         // 管道宽度
 

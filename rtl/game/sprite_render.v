@@ -47,7 +47,7 @@ module sprite_render(
     parameter BIRD_H = 35;
     parameter PIPE_W = 80;
     parameter PIPE_H = 500; // 管道纹理高度
-    parameter PIPE_GAP_H = 140; 
+    parameter PIPE_GAP_H = 220; // 增大显示缝隙 (原来是140)
     parameter COLOR_PIPE = 16'h07E0; // 纯绿
     
     // 地面参数
