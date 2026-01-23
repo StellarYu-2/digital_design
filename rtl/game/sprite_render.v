@@ -49,6 +49,7 @@ module sprite_render(
     parameter PIPE_H = 500; // 管道纹理高度
     parameter PIPE_GAP_H = 220; // 增大显示缝隙 (原来是140)
     parameter COLOR_PIPE = 16'h07E0; // 纯绿
+    parameter TRANSPARENT_COLOR = 16'h07E0; // 小鸟的透明背景色 (纯绿)
     
     // 地面参数
     parameter BASE_TEX_W = 64;  // 存储的纹理宽度 (必须是2的幂)
@@ -278,7 +279,7 @@ module sprite_render(
         if(is_bird_d1) begin
              if(bird_pixel_raw == 16'h0000) // 调试蓝
                  pixel_out = 16'h001F; 
-             else if(bird_pixel_raw == 16'hFFFF) // 透明
+             else if(bird_pixel_raw == TRANSPARENT_COLOR) // 透明 (绿)
                  if(is_pipe1_d1 || is_pipe2_d1) pixel_out = pipe_pixel_raw; // 透出管道
                  else pixel_out = bg_data_d1;
              else
