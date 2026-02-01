@@ -190,6 +190,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sdram_data
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sdram_cs_n
 set_location_assignment PIN_E16 -to key_jump
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to key_jump
+set_location_assignment PIN_E15 -to key_auto
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to key_auto
 set_global_assignment -name VERILOG_FILE ../rtl/seg_driver.v
 set_global_assignment -name VERILOG_FILE ../rtl/game/game_ctrl.v
 set_global_assignment -name VERILOG_FILE ../rtl/game/collision_det.v
@@ -197,6 +199,7 @@ set_global_assignment -name VERILOG_FILE ../rtl/game/sprite_render.v
 set_global_assignment -name VERILOG_FILE ../rtl/game/pipe_gen.v
 set_global_assignment -name VERILOG_FILE ../rtl/game/game_param.v
 set_global_assignment -name VERILOG_FILE ../rtl/game/bird_ctrl.v
+set_global_assignment -name VERILOG_FILE ../rtl/game/ai_ctrl.v
 set_global_assignment -name VERILOG_FILE ../rtl/sd_multi_pic.v
 set_global_assignment -name VERILOG_FILE ipcore/ddio_out/ddio_out.v
 set_global_assignment -name VERILOG_FILE ipcore/pll_hdmi/pll_hdmi.v

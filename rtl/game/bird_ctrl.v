@@ -3,7 +3,9 @@
 module bird_ctrl(
     input             clk,          // 必须连接 65MHz 的 HDMI 时钟
     input             rst_n,        // 复位
-    input             key_jump,     // 跳跃按键 
+    input             key_jump,     // 跳跃按键（手动模式）
+    input             ai_jump,      // AI跳跃信号（自动模式）
+    input             auto_mode,    // 自动模式标志：1=自动，0=手动
     input             game_active,  // 游戏激活状态
     input             frame_en_unused, // (弃用外部帧信号)
     
@@ -49,7 +51,7 @@ module bird_ctrl(
     // 2. 按键检测 (简单的边沿检测 + 简易防抖)
     // ---------------------------------------------------------
     reg key_d0, key_d1;
-    wire jump_trigger;
+    wire manual_jump_trigger;
     
     always @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin
@@ -61,7 +63,10 @@ module bird_ctrl(
         end
     end
     // 检测 0->1 上升沿 (假设顶层传入的是处理好极性的信号)
-    assign jump_trigger = key_d0 & (~key_d1); 
+    assign manual_jump_trigger = key_d0 & (~key_d1);
+    
+    // 合并手动和AI跳跃信号
+    wire jump_trigger = auto_mode ? ai_jump : manual_jump_trigger;
 
     // ---------------------------------------------------------
     // 3. 物理引擎核心

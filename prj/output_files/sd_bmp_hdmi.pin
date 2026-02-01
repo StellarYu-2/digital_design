@@ -146,7 +146,7 @@ sdram_addr[1]                : E11       : output : 3.3-V LVCMOS      :         
 GNDA2                        : E12       : gnd    :                   :         :           :                
 GND                          : E13       : gnd    :                   :         :           :                
 VCCIO6                       : E14       : power  :                   : 3.3V    : 6         :                
-GND+                         : E15       :        :                   :         : 6         :                
+key_auto                     : E15       : input  : 3.3-V LVCMOS      :         : 6         : Y              
 key_jump                     : E16       : input  : 3.3-V LVCMOS      :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : F1        :        :                   :         : 1         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F2        :        :                   :         : 1         :                

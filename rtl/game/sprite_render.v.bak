@@ -170,7 +170,7 @@ module sprite_render(
     
     // 定义分割点：前40行是管口区域（含阴影过渡）
     // 40行以后全部重复使用第40行的数据
-    localparam PIPE_SPLIT_Y = 10;
+    localparam PIPE_SPLIT_Y = 40;
     // localparam PIPE_LOOP_H  = 20; // 不再需要循环
 
     always @(*) begin

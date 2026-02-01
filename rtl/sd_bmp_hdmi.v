@@ -1,7 +1,8 @@
 module sd_bmp_hdmi(    
     input                 sys_clk,      //系统时钟
     input                 sys_rst_n,    //系统复位，低电平有效
-    input                 key_jump,     //用户按键: 跳跃                       
+    input                 key_jump,     //用户按键: 跳跃
+    input                 key_auto,     //用户按键: 切换自动/手动模式                       
     //SD卡接口
     input                 sd_miso,      //SD卡SPI串行输入数据信号
     output                sd_clk ,      //SD卡SPI时钟信号
@@ -218,11 +219,34 @@ always @(posedge hdmi_clk or negedge rst_n) begin
 end
 assign frame_en = vs_d0 & (~vs_d1); // 上升沿脉冲
 
+// AI控制信号
+wire ai_jump;
+wire auto_mode;
+
+// 1.5 例化AI控制模块（新增）
+ai_ctrl u_ai_ctrl(
+    .clk            (hdmi_clk),
+    .rst_n          (rst_n),
+    .game_active    (game_active),
+    .frame_en       (internal_frame_en),
+    .bird_y         (bird_y),
+    .bird_x         (bird_x),
+    .pipe1_x        (pipe1_x),
+    .pipe1_gap_y    (pipe1_gap_y),
+    .pipe2_x        (pipe2_x),
+    .pipe2_gap_y    (pipe2_gap_y),
+    .key_auto       (~key_auto),     // 按键低电平有效，取反后变为高有效
+    .ai_jump_pulse  (ai_jump),
+    .auto_mode      (auto_mode)
+);
+
 // 2. 例化小鸟控制模块
 bird_ctrl u_bird_ctrl(
     .clk            (hdmi_clk),      // 使用HDMI时钟，避免跨时钟域问题
     .rst_n          (rst_n),
     .key_jump       (~key_jump),     // 按键低电平有效，取反后变为高有效
+    .ai_jump        (ai_jump),       // AI跳跃信号（新增）
+    .auto_mode      (auto_mode),     // 自动模式标志（新增）
     .game_active    (game_active),   // 使用游戏激活信号
     .frame_en_unused(internal_frame_en), // 连接内部帧信号(仅做参考)
     .bird_y         (bird_y),
