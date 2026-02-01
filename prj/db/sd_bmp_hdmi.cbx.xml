@@ -4,13 +4,12 @@
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_jhm.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_aol1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_abm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_uim.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|pll_clk:pll_clk_inst|altpll:altpll_component" CBX_FILE_NAME="pll_clk_altpll.v"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|pll_hdmi:pll_hdmi_inst|altpll:altpll_component" CBX_FILE_NAME="pll_hdmi_altpll.v"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|sprite_render:u_sprite_render|altsyncram:pipe_ram_rtl_0" CBX_FILE_NAME="altsyncram_i8d1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|sprite_render:u_sprite_render|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_ngh.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_b|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
@@ -19,5 +18,9 @@
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|sprite_render:u_sprite_render|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_jgh.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|sprite_render:u_sprite_render|altsyncram:bird_ram_rtl_0" CBX_FILE_NAME="altsyncram_49d1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_g|ddio_out:u_ddio_out_n|altddio_out:ALTDDIO_OUT_component" CBX_FILE_NAME="ddio_out_p9j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_abm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_afh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sd_bmp_hdmi|sprite_render:u_sprite_render|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_ngh.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

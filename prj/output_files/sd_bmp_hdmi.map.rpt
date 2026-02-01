@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sd_bmp_hdmi
-Sun Feb 01 20:13:12 2026
+Sun Feb 01 20:41:02 2026
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -94,27 +94,30 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
  86. Parameter Settings for Inferred Entity Instance: sprite_render:u_sprite_render|altsyncram:pipe_ram_rtl_0
  87. Parameter Settings for Inferred Entity Instance: sprite_render:u_sprite_render|altsyncram:bird_ram_rtl_0
  88. Parameter Settings for Inferred Entity Instance: sprite_render:u_sprite_render|lpm_mult:Mult0
- 89. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod0
- 90. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod1
- 91. altpll Parameter Settings by Entity Instance
- 92. dcfifo Parameter Settings by Entity Instance
- 93. altsyncram Parameter Settings by Entity Instance
- 94. lpm_mult Parameter Settings by Entity Instance
- 95. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk"
- 96. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r"
- 97. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g"
- 98. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0"
- 99. Port Connectivity Checks: "hdmi_top:u_hdmi_top"
-100. Port Connectivity Checks: "sdram_top:u_sdram_top"
-101. Port Connectivity Checks: "sd_ctrl_top:u_sd_ctrl_top"
-102. Port Connectivity Checks: "sd_multi_pic:u_sd_multi_pic"
-103. Port Connectivity Checks: "pll_clk:pll_clk_inst"
-104. Port Connectivity Checks: "sprite_render:u_sprite_render"
-105. Port Connectivity Checks: "pipe_gen:u_pipe_gen"
-106. Port Connectivity Checks: "bird_ctrl:u_bird_ctrl"
-107. Elapsed Time Per Partition
-108. Analysis & Synthesis Messages
-109. Analysis & Synthesis Suppressed Messages
+ 89. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Div0
+ 90. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod0
+ 91. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod1
+ 92. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_mult:Mult0
+ 93. Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Div1
+ 94. altpll Parameter Settings by Entity Instance
+ 95. dcfifo Parameter Settings by Entity Instance
+ 96. altsyncram Parameter Settings by Entity Instance
+ 97. lpm_mult Parameter Settings by Entity Instance
+ 98. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_clk"
+ 99. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r"
+100. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g"
+101. Port Connectivity Checks: "hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0"
+102. Port Connectivity Checks: "hdmi_top:u_hdmi_top"
+103. Port Connectivity Checks: "sdram_top:u_sdram_top"
+104. Port Connectivity Checks: "sd_ctrl_top:u_sd_ctrl_top"
+105. Port Connectivity Checks: "sd_multi_pic:u_sd_multi_pic"
+106. Port Connectivity Checks: "pll_clk:pll_clk_inst"
+107. Port Connectivity Checks: "sprite_render:u_sprite_render"
+108. Port Connectivity Checks: "pipe_gen:u_pipe_gen"
+109. Port Connectivity Checks: "bird_ctrl:u_bird_ctrl"
+110. Elapsed Time Per Partition
+111. Analysis & Synthesis Messages
+112. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -140,15 +143,15 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Feb 01 20:13:11 2026       ;
+; Analysis & Synthesis Status        ; Successful - Sun Feb 01 20:41:02 2026       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; sd_bmp_hdmi                                 ;
 ; Top-level Entity Name              ; sd_bmp_hdmi                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 3,268                                       ;
-;     Total combinational functions  ; 2,969                                       ;
-;     Dedicated logic registers      ; 1,100                                       ;
-; Total registers                    ; 1116                                        ;
+; Total logic elements               ; 3,478                                       ;
+;     Total combinational functions  ; 3,179                                       ;
+;     Dedicated logic registers      ; 1,120                                       ;
+; Total registers                    ; 1136                                        ;
 ; Total pins                         ; 69                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 180,768                                     ;
@@ -368,14 +371,21 @@ applicable agreement for further details.
 ; lpm_divide.tdf                    ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/lpm_divide.tdf                  ;         ;
 ; abs_divider.inc                   ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/abs_divider.inc                 ;         ;
 ; sign_div_unsign.inc               ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/sign_div_unsign.inc             ;         ;
+; db/lpm_divide_jhm.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/lpm_divide_jhm.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_a4f.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/alt_u_div_a4f.tdf       ;         ;
+; db/add_sub_7pc.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/add_sub_8pc.tdf         ;         ;
 ; db/lpm_divide_abm.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/lpm_divide_abm.tdf      ;         ;
 ; db/sign_div_unsign_vlh.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/sign_div_unsign_vlh.tdf ;         ;
 ; db/alt_u_div_i7f.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/alt_u_div_i7f.tdf       ;         ;
-; db/add_sub_7pc.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/add_sub_8pc.tdf         ;         ;
 ; db/lpm_divide_bbm.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/lpm_divide_bbm.tdf      ;         ;
 ; db/sign_div_unsign_0mh.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/sign_div_unsign_0mh.tdf ;         ;
 ; db/alt_u_div_k7f.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/alt_u_div_k7f.tdf       ;         ;
+; db/add_sub_afh.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/add_sub_afh.tdf         ;         ;
+; db/lpm_divide_uim.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/lpm_divide_uim.tdf      ;         ;
+; db/sign_div_unsign_mlh.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/sign_div_unsign_mlh.tdf ;         ;
+; db/alt_u_div_07f.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/db/alt_u_div_07f.tdf       ;         ;
 +-----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
 
 
@@ -384,20 +394,20 @@ applicable agreement for further details.
 +---------------------------------------------+---------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                       ;
 +---------------------------------------------+---------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 3,268                                                                                       ;
+; Estimated Total logic elements              ; 3,478                                                                                       ;
 ;                                             ;                                                                                             ;
-; Total combinational functions               ; 2969                                                                                        ;
+; Total combinational functions               ; 3179                                                                                        ;
 ; Logic element usage by number of LUT inputs ;                                                                                             ;
-;     -- 4 input functions                    ; 914                                                                                         ;
-;     -- 3 input functions                    ; 916                                                                                         ;
-;     -- <=2 input functions                  ; 1139                                                                                        ;
+;     -- 4 input functions                    ; 943                                                                                         ;
+;     -- 3 input functions                    ; 997                                                                                         ;
+;     -- <=2 input functions                  ; 1239                                                                                        ;
 ;                                             ;                                                                                             ;
 ; Logic elements by mode                      ;                                                                                             ;
-;     -- normal mode                          ; 1831                                                                                        ;
-;     -- arithmetic mode                      ; 1138                                                                                        ;
+;     -- normal mode                          ; 1969                                                                                        ;
+;     -- arithmetic mode                      ; 1210                                                                                        ;
 ;                                             ;                                                                                             ;
-; Total registers                             ; 1116                                                                                        ;
-;     -- Dedicated logic registers            ; 1100                                                                                        ;
+; Total registers                             ; 1136                                                                                        ;
+;     -- Dedicated logic registers            ; 1120                                                                                        ;
 ;     -- I/O registers                        ; 32                                                                                          ;
 ;                                             ;                                                                                             ;
 ; I/O pins                                    ; 69                                                                                          ;
@@ -408,8 +418,8 @@ applicable agreement for further details.
 ;                                             ;                                                                                             ;
 ; Maximum fan-out node                        ; pll_clk:pll_clk_inst|altpll:altpll_component|pll_clk_altpll:auto_generated|wire_pll1_clk[0] ;
 ; Maximum fan-out                             ; 661                                                                                         ;
-; Total fan-out                               ; 14460                                                                                       ;
-; Average fan-out                             ; 3.37                                                                                        ;
+; Total fan-out                               ; 15081                                                                                       ;
+; Average fan-out                             ; 3.33                                                                                        ;
 +---------------------------------------------+---------------------------------------------------------------------------------------------+
 
 
@@ -418,9 +428,9 @@ applicable agreement for further details.
 +-----------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                      ; Library Name ;
 +-----------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |sd_bmp_hdmi                                        ; 2969 (90)         ; 1100 (34)    ; 180768      ; 0            ; 0       ; 0         ; 69   ; 0            ; |sd_bmp_hdmi                                                                                                                                                                             ; work         ;
+; |sd_bmp_hdmi                                        ; 3179 (90)         ; 1120 (34)    ; 180768      ; 0            ; 0       ; 0         ; 69   ; 0            ; |sd_bmp_hdmi                                                                                                                                                                             ; work         ;
 ;    |ai_ctrl:u_ai_ctrl|                              ; 74 (74)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|ai_ctrl:u_ai_ctrl                                                                                                                                                           ; work         ;
-;    |bird_ctrl:u_bird_ctrl|                          ; 103 (103)         ; 45 (45)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl                                                                                                                                                       ; work         ;
+;    |bird_ctrl:u_bird_ctrl|                          ; 104 (104)         ; 45 (45)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl                                                                                                                                                       ; work         ;
 ;    |collision_det:u_collision_det|                  ; 165 (165)         ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|collision_det:u_collision_det                                                                                                                                               ; work         ;
 ;    |game_ctrl:u_game_ctrl|                          ; 38 (38)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl                                                                                                                                                       ; work         ;
 ;    |hdmi_top:u_hdmi_top|                            ; 456 (0)           ; 198 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top                                                                                                                                                         ; work         ;
@@ -458,7 +468,15 @@ applicable agreement for further details.
 ;                |altddio_out:ALTDDIO_OUT_component|  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component                                 ; work         ;
 ;                   |ddio_out_p9j:auto_generated|     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|serializer_10_to_1:serializer_r|ddio_out:u_ddio_out_p|altddio_out:ALTDDIO_OUT_component|ddio_out_p9j:auto_generated     ; work         ;
 ;       |video_driver:u_video_driver|                 ; 143 (143)         ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|video_driver:u_video_driver                                                                                                                             ; work         ;
-;    |pipe_gen:u_pipe_gen|                            ; 562 (135)         ; 81 (81)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen                                                                                                                                                         ; work         ;
+;    |pipe_gen:u_pipe_gen|                            ; 771 (160)         ; 101 (101)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen                                                                                                                                                         ; work         ;
+;       |lpm_divide:Div0|                             ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div0                                                                                                                                         ; work         ;
+;          |lpm_divide_jhm:auto_generated|            ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                                                                           ; work         ;
+;             |sign_div_unsign_bkh:divider|           ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                                                                               ; work         ;
+;                |alt_u_div_a4f:divider|              ; 56 (56)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider                                                         ; work         ;
+;       |lpm_divide:Div1|                             ; 108 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div1                                                                                                                                         ; work         ;
+;          |lpm_divide_uim:auto_generated|            ; 108 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div1|lpm_divide_uim:auto_generated                                                                                                           ; work         ;
+;             |sign_div_unsign_mlh:divider|           ; 108 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div1|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider                                                                               ; work         ;
+;                |alt_u_div_07f:divider|              ; 108 (108)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Div1|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_07f:divider                                                         ; work         ;
 ;       |lpm_divide:Mod0|                             ; 212 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0                                                                                                                                         ; work         ;
 ;          |lpm_divide_abm:auto_generated|            ; 212 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0|lpm_divide_abm:auto_generated                                                                                                           ; work         ;
 ;             |sign_div_unsign_vlh:divider|           ; 212 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod0|lpm_divide_abm:auto_generated|sign_div_unsign_vlh:divider                                                                               ; work         ;
@@ -467,6 +485,11 @@ applicable agreement for further details.
 ;          |lpm_divide_bbm:auto_generated|            ; 215 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated                                                                                                           ; work         ;
 ;             |sign_div_unsign_0mh:divider|           ; 215 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_0mh:divider                                                                               ; work         ;
 ;                |alt_u_div_k7f:divider|              ; 215 (215)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_0mh:divider|alt_u_div_k7f:divider                                                         ; work         ;
+;       |lpm_mult:Mult0|                              ; 20 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_mult:Mult0                                                                                                                                          ; work         ;
+;          |multcore:mult_core|                       ; 20 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_mult:Mult0|multcore:mult_core                                                                                                                       ; work         ;
+;             |mpar_add:padder|                       ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                                                                       ; work         ;
+;                |lpm_add_sub:adder[0]|               ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                                                                  ; work         ;
+;                   |add_sub_afh:auto_generated|      ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_afh:auto_generated                                                       ; work         ;
 ;    |pll_clk:pll_clk_inst|                           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pll_clk:pll_clk_inst                                                                                                                                                        ; work         ;
 ;       |altpll:altpll_component|                     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pll_clk:pll_clk_inst|altpll:altpll_component                                                                                                                                ; work         ;
 ;          |pll_clk_altpll:auto_generated|            ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|pll_clk:pll_clk_inst|altpll:altpll_component|pll_clk_altpll:auto_generated                                                                                                  ; work         ;
@@ -509,12 +532,12 @@ applicable agreement for further details.
 ;                   |alt_synch_pipe_vd8:rs_dgwp|      ; 0 (0)             ; 11 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:rs_dgwp                       ; work         ;
 ;                      |dffpipe_qe9:dffpipe10|        ; 0 (0)             ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|alt_synch_pipe_vd8:rs_dgwp|dffpipe_qe9:dffpipe10 ; work         ;
 ;                   |altsyncram_em31:fifo_ram|        ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|altsyncram_em31:fifo_ram                         ; work         ;
-;                   |cmpr_c66:rdempty_eq_comp_lsb|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|cmpr_c66:rdempty_eq_comp_lsb                     ; work         ;
+;                   |cmpr_c66:wrfull_eq_comp_lsb|     ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|cmpr_c66:wrfull_eq_comp_lsb                      ; work         ;
 ;                   |dffpipe_pe9:rs_brp|              ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|dffpipe_pe9:rs_brp                               ; work         ;
 ;                   |dffpipe_pe9:rs_bwp|              ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|dffpipe_pe9:rs_bwp                               ; work         ;
-;                   |mux_j28:rdemp_eq_comp_lsb_mux|   ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:rdemp_eq_comp_lsb_mux                    ; work         ;
+;                   |mux_j28:rdemp_eq_comp_lsb_mux|   ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:rdemp_eq_comp_lsb_mux                    ; work         ;
 ;                   |mux_j28:rdemp_eq_comp_msb_mux|   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:rdemp_eq_comp_msb_mux                    ; work         ;
-;                   |mux_j28:wrfull_eq_comp_lsb_mux|  ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:wrfull_eq_comp_lsb_mux                   ; work         ;
+;                   |mux_j28:wrfull_eq_comp_lsb_mux|  ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:wrfull_eq_comp_lsb_mux                   ; work         ;
 ;                   |mux_j28:wrfull_eq_comp_msb_mux|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|mux_j28:wrfull_eq_comp_msb_mux                   ; work         ;
 ;    |seg_driver:u_seg_driver|                        ; 48 (48)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|seg_driver:u_seg_driver                                                                                                                                                     ; work         ;
 ;    |sprite_render:u_sprite_render|                  ; 499 (476)         ; 19 (19)      ; 148000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |sd_bmp_hdmi|sprite_render:u_sprite_render                                                                                                                                               ; work         ;
@@ -821,12 +844,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1100  ;
-; Number of registers using Synchronous Clear  ; 200   ;
+; Total registers                              ; 1120  ;
+; Number of registers using Synchronous Clear  ; 212   ;
 ; Number of registers using Synchronous Load   ; 31    ;
-; Number of registers using Asynchronous Clear ; 976   ;
+; Number of registers using Asynchronous Clear ; 996   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 593   ;
+; Number of registers using Clock Enable       ; 613   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -836,10 +859,10 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                                                                                                                 ; Fan out ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; pipe_gen:u_pipe_gen|pipe2_gap_y[8]                                                                                                                                ; 4       ;
-; pipe_gen:u_pipe_gen|pipe2_gap_y[5]                                                                                                                                ; 4       ;
 ; pipe_gen:u_pipe_gen|pipe1_gap_y[8]                                                                                                                                ; 4       ;
 ; pipe_gen:u_pipe_gen|pipe1_gap_y[7]                                                                                                                                ; 4       ;
+; pipe_gen:u_pipe_gen|pipe2_gap_y[8]                                                                                                                                ; 4       ;
+; pipe_gen:u_pipe_gen|pipe2_gap_y[5]                                                                                                                                ; 4       ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|sd_cs                                                                                                                 ; 2       ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|sd_cs                                                                                                                 ; 2       ;
 ; sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|sd_mosi                                                                                                               ; 1       ;
@@ -885,6 +908,10 @@ Encoding Type:  One-Hot
 ; pipe_gen:u_pipe_gen|pipe1_x_d1[6]                                                                                                                                 ; 1       ;
 ; hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|asyn_rst_syn:reset_syn|reset_2                                                                                ; 44      ;
 ; pipe_gen:u_pipe_gen|pipe2_x[1]                                                                                                                                    ; 6       ;
+; pipe_gen:u_pipe_gen|current_speed_num[4]                                                                                                                          ; 10      ;
+; pipe_gen:u_pipe_gen|current_speed_num[3]                                                                                                                          ; 9       ;
+; pipe_gen:u_pipe_gen|current_speed_num[2]                                                                                                                          ; 11      ;
+; pipe_gen:u_pipe_gen|current_speed_num[1]                                                                                                                          ; 11      ;
 ; bird_ctrl:u_bird_ctrl|bird_y[8]                                                                                                                                   ; 8       ;
 ; bird_ctrl:u_bird_ctrl|bird_y[7]                                                                                                                                   ; 8       ;
 ; pipe_gen:u_pipe_gen|pipe2_gap_y[3]                                                                                                                                ; 4       ;
@@ -906,12 +933,12 @@ Encoding Type:  One-Hot
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_2lc:wrptr_g1p|counter6a0 ; 7       ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_677:rdptr_g1p|parity4    ; 4       ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_2lc:wrptr_g1p|parity7    ; 4       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|rdemp_eq_comp_lsb_aeb                  ; 2       ;
-; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|rdemp_eq_comp_msb_aeb                  ; 2       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|rdemp_eq_comp_lsb_aeb                  ; 3       ;
+; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|rdemp_eq_comp_msb_aeb                  ; 3       ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_677:rdptr_g1p|counter3a0 ; 8       ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|wrfifo:u_wrfifo|dcfifo:dcfifo_component|dcfifo_nnl1:auto_generated|a_graycounter_2lc:wrptr_g1p|parity7    ; 4       ;
 ; sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|rdfifo:u_rdfifo|dcfifo:dcfifo_component|dcfifo_aol1:auto_generated|a_graycounter_677:rdptr_g1p|parity4    ; 4       ;
-; Total number of inverted registers = 75                                                                                                                           ;         ;
+; Total number of inverted registers = 79                                                                                                                           ;         ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -932,61 +959,63 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|cmd_bit_cnt[0]                                       ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|rx_data_cnt[6]                                       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl|init_ar_cnt[2] ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|poweron_cnt[7]                                       ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|bmp_head_cnt[1]                                                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl|init_ar_cnt[0] ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|poweron_cnt[9]                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|bmp_head_cnt[0]                                                      ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|score_bcd[3]                                                               ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|res_flag                                             ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|res_bit_cnt[5]                                       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|res_en                                               ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|res_bit_cnt[2]                                       ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|rx_bit_cnt[3]                                        ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|res_en                                               ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|res_bit_cnt[4]                                       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rgb888_data[4]                                                       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sd_bmp_hdmi|pipe_load_addr[8]                                                                                ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_load_addr[9]                                                                                ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[23]                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[3]                         ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[15]                        ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[17]                        ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[18]                        ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|score_bcd[4]                                                               ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl|init_state[1]  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|res_bit_cnt[3]                                       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rgb888_data[5]                                                       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sd_bmp_hdmi|pipe_load_addr[0]                                                                                ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_load_addr[2]                                                                                ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[22]                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[6]                         ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_wr_addr[11]                        ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[9]                         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_fifo_ctrl:u_sdram_fifo_ctrl|sdram_rd_addr[20]                        ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|score_bcd[6]                                                               ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_ctrl:u_sdram_ctrl|init_state[2]  ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe1_x[1]                                                                   ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe2_x[3]                                                                   ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|dout[7]                ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g|dout[6]                ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|dout[5]                ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|dout[6]                ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g|dout[3]                ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|dout[4]                ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|val_en_cnt[0]                                                        ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|col_word_cnt[0]                                                      ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|score_bcd[8]                                                               ;
-; 6:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|bird_y[0]                                                                  ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|score_bcd[14]                                                              ;
-; 6:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|velocity[1]                                                                ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rd_sec_addr[6]                                                       ;
-; 6:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rd_sec_addr[3]                                                       ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|speed_timer[3]                                                               ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|col_word_cnt[1]                                                      ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|score_bcd[11]                                                              ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|bird_y[2]                                                                  ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|score_bcd[15]                                                              ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|velocity[6]                                                                ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rd_sec_addr[24]                                                      ;
+; 6:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|rd_sec_addr[7]                                                       ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|ai_ctrl:u_ai_ctrl|cooldown_cnt[1]                                                                ;
 ; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_init:u_sd_init|cmd_bit_cnt[0]                                       ;
 ; 20:1               ; 3 bits    ; 39 LEs        ; 6 LEs                ; 33 LEs                 ; Yes        ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_read:u_sd_read|rd_ctrl_cnt[3]                                       ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_cmd_r[2]   ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe1_x[3]                                                                   ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe2_x[2]                                                                   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|bird_y[8]                                                                  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|pipe2_x[9]                                                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|pipe_gen:u_pipe_gen|current_speed_num[2]                                                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sd_bmp_hdmi|bird_ctrl:u_bird_ctrl|bird_y[7]                                                                  ;
 ; 10:1               ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[4]    ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 8 LEs                ; 22 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_ba[0]      ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 8 LEs                ; 22 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_ba[1]      ;
 ; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[9]    ;
 ; 16:1               ; 3 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|sdram_addr[3]    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sd_bmp_hdmi|sd_ctrl_top:u_sd_ctrl_top|sd_mosi                                                                ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |sd_bmp_hdmi|sdram_top:u_sdram_top|sdram_controller:u_sdram_controller|sdram_cmd:u_sdram_cmd|Mux0             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |sd_bmp_hdmi|ai_ctrl:u_ai_ctrl|target_gap_y[8]                                                                ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |sd_bmp_hdmi|ai_ctrl:u_ai_ctrl|target_gap_y[3]                                                                ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |sd_bmp_hdmi|seg_driver:u_seg_driver|Mux3                                                                     ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_b|Add16                  ;
 ; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_g|Add16                  ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|dvi_transmitter_top:u_rgb2dvi_0|dvi_encoder:encoder_r|Add16                  ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |sd_bmp_hdmi|game_ctrl:u_game_ctrl|Selector1                                                                  ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|video_driver:u_video_driver|video_rgb[5]                                     ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |sd_bmp_hdmi|hdmi_top:u_hdmi_top|video_driver:u_video_driver|video_rgb[15]                                    ;
 ; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |sd_bmp_hdmi|sprite_render:u_sprite_render|pipe_read_addr[0]                                                  ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|sprite_render:u_sprite_render|pipe_read_addr[11]                                                 ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|Selector34                                                           ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |sd_bmp_hdmi|sprite_render:u_sprite_render|pipe_read_addr[4]                                                  ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|Selector35                                                           ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |sd_bmp_hdmi|sd_multi_pic:u_sd_multi_pic|Selector32                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 
@@ -1445,16 +1474,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: pipe_gen:u_pipe_gen ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; PIPE_START_X   ; 600   ; Signed Integer                          ;
-; PIPE_DIST      ; 350   ; Signed Integer                          ;
-; PIPE_SPEED     ; 3     ; Signed Integer                          ;
-; PIPE_GAP_H     ; 220   ; Signed Integer                          ;
-; BIRD_X_pos     ; 300   ; Signed Integer                          ;
-; PIPE_W         ; 80    ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++-------------------+-------+--------------------------------------+
+; Parameter Name    ; Value ; Type                                 ;
++-------------------+-------+--------------------------------------+
+; PIPE_START_X      ; 600   ; Signed Integer                       ;
+; PIPE_DIST         ; 350   ; Signed Integer                       ;
+; PIPE_SPEED        ; 3     ; Signed Integer                       ;
+; PIPE_GAP_H        ; 220   ; Signed Integer                       ;
+; BIRD_X_pos        ; 300   ; Signed Integer                       ;
+; PIPE_W            ; 80    ; Signed Integer                       ;
+; SPEED_UP_INTERVAL ; 180   ; Signed Integer                       ;
+; SPEED_FACTOR_NUM  ; 11    ; Signed Integer                       ;
+; SPEED_FACTOR_DEN  ; 10    ; Signed Integer                       ;
+; MAX_SPEED         ; 30    ; Signed Integer                       ;
++-------------------+-------+--------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -2755,6 +2788,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                    ;
+; LPM_WIDTHD             ; 4              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_jhm ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Mod0 ;
 +------------------------+----------------+--------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                       ;
@@ -2790,6 +2846,64 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
 ; CBXI_PARAMETER         ; lpm_divide_bbm ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8            ; Untyped             ;
+; LPM_WIDTHB                                     ; 4            ; Untyped             ;
+; LPM_WIDTHP                                     ; 12           ; Untyped             ;
+; LPM_WIDTHR                                     ; 12           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING      ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: pipe_gen:u_pipe_gen|lpm_divide:Div1 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 12             ; Untyped                                    ;
+; LPM_WIDTHD             ; 4              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_uim ; Untyped                                    ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
@@ -2882,11 +2996,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+----------------------------------------------+
 ; Name                                  ; Value                                        ;
 +---------------------------------------+----------------------------------------------+
-; Number of entity instances            ; 1                                            ;
+; Number of entity instances            ; 2                                            ;
 ; Entity Instance                       ; sprite_render:u_sprite_render|lpm_mult:Mult0 ;
 ;     -- LPM_WIDTHA                     ; 11                                           ;
 ;     -- LPM_WIDTHB                     ; 6                                            ;
 ;     -- LPM_WIDTHP                     ; 17                                           ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                           ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                          ;
+;     -- USE_EAB                        ; OFF                                          ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                         ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                           ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                           ;
+; Entity Instance                       ; pipe_gen:u_pipe_gen|lpm_mult:Mult0           ;
+;     -- LPM_WIDTHA                     ; 8                                            ;
+;     -- LPM_WIDTHB                     ; 4                                            ;
+;     -- LPM_WIDTHP                     ; 12                                           ;
 ;     -- LPM_REPRESENTATION             ; UNSIGNED                                     ;
 ;     -- INPUT_A_IS_CONSTANT            ; NO                                           ;
 ;     -- INPUT_B_IS_CONSTANT            ; YES                                          ;
@@ -3039,7 +3164,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -3049,7 +3174,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Sun Feb 01 20:13:05 2026
+    Info: Processing started: Sun Feb 01 20:40:54 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sd_bmp_hdmi -c sd_bmp_hdmi
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /users/yu.win-h4mb5vm86kc.000/desktop/digital/rtl/seg_driver.v
@@ -3146,17 +3271,19 @@ Info (10041): Inferred latch for "bird_angle[7]" at bird_ctrl.v(74)
 Info (10041): Inferred latch for "bird_angle[8]" at bird_ctrl.v(74)
 Info (10041): Inferred latch for "bird_angle[9]" at bird_ctrl.v(74)
 Info (12128): Elaborating entity "pipe_gen" for hierarchy "pipe_gen:u_pipe_gen"
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(36): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(40): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(41): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(44): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(45): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(62): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(67): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(72): truncated value with size 32 to match size of target (12)
-Warning (10230): Verilog HDL assignment warning at pipe_gen.v(75): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(44): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(49): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(62): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(68): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(76): truncated value with size 32 to match size of target (12)
 Warning (10230): Verilog HDL assignment warning at pipe_gen.v(80): truncated value with size 32 to match size of target (12)
 Warning (10230): Verilog HDL assignment warning at pipe_gen.v(81): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(84): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(85): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(107): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(115): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(120): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at pipe_gen.v(121): truncated value with size 32 to match size of target (12)
 Info (12128): Elaborating entity "collision_det" for hierarchy "collision_det:u_collision_det"
 Warning (10230): Verilog HDL assignment warning at collision_det.v(52): truncated value with size 32 to match size of target (12)
 Warning (10230): Verilog HDL assignment warning at collision_det.v(53): truncated value with size 32 to match size of target (12)
@@ -3485,10 +3612,13 @@ Info (19000): Inferred 2 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-Info (278001): Inferred 3 megafunctions from design logic
+Info (278001): Inferred 6 megafunctions from design logic
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "sprite_render:u_sprite_render|Mult0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_gen:u_pipe_gen|Div0"
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_gen:u_pipe_gen|Mod0"
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_gen:u_pipe_gen|Mod1"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "pipe_gen:u_pipe_gen|Mult0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_gen:u_pipe_gen|Div1"
 Info (12130): Elaborated megafunction instantiation "sprite_render:u_sprite_render|altsyncram:pipe_ram_rtl_0"
 Info (12133): Instantiated megafunction "sprite_render:u_sprite_render|altsyncram:pipe_ram_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -3546,6 +3676,22 @@ Info (12131): Elaborated megafunction instantiation "sprite_render:u_sprite_rend
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_ngh.tdf
     Info (12023): Found entity 1: add_sub_ngh
 Info (12131): Elaborated megafunction instantiation "sprite_render:u_sprite_render|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "sprite_render:u_sprite_render|lpm_mult:Mult0"
+Info (12130): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_divide:Div0"
+Info (12133): Instantiated megafunction "pipe_gen:u_pipe_gen|lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jhm.tdf
+    Info (12023): Found entity 1: lpm_divide_jhm
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
+    Info (12023): Found entity 1: alt_u_div_a4f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc
 Info (12130): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_divide:Mod0"
 Info (12133): Instantiated megafunction "pipe_gen:u_pipe_gen|lpm_divide:Mod0" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHN" = "16"
@@ -3558,10 +3704,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_vlh
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i7f.tdf
     Info (12023): Found entity 1: alt_u_div_i7f
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc
 Info (12130): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_divide:Mod1"
 Info (12133): Instantiated megafunction "pipe_gen:u_pipe_gen|lpm_divide:Mod1" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHN" = "17"
@@ -3574,6 +3716,35 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_0mh
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_k7f.tdf
     Info (12023): Found entity 1: alt_u_div_k7f
+Info (12130): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "pipe_gen:u_pipe_gen|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "4"
+    Info (12134): Parameter "LPM_WIDTHP" = "12"
+    Info (12134): Parameter "LPM_WIDTHR" = "12"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0"
+Info (12131): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0"
+Info (12131): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_afh.tdf
+    Info (12023): Found entity 1: add_sub_afh
+Info (12131): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "pipe_gen:u_pipe_gen|lpm_mult:Mult0"
+Info (12130): Elaborated megafunction instantiation "pipe_gen:u_pipe_gen|lpm_divide:Div1"
+Info (12133): Instantiated megafunction "pipe_gen:u_pipe_gen|lpm_divide:Div1" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "12"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_uim.tdf
+    Info (12023): Found entity 1: lpm_divide_uim
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_mlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_mlh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_07f.tdf
+    Info (12023): Found entity 1: alt_u_div_07f
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
@@ -3586,18 +3757,18 @@ Info (17049): 125 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Yu.WIN-H4MB5VM86KC.000/Desktop/digital/prj/output_files/sd_bmp_hdmi.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 2 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3459 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3669 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 48 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 3316 logic cells
+    Info (21061): Implemented 3526 logic cells
     Info (21064): Implemented 64 RAM segments
     Info (21065): Implemented 2 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 72 warnings
-    Info: Peak virtual memory: 4739 megabytes
-    Info: Processing ended: Sun Feb 01 20:13:12 2026
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:07
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 74 warnings
+    Info: Peak virtual memory: 4740 megabytes
+    Info: Processing ended: Sun Feb 01 20:41:02 2026
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +------------------------------------------+
