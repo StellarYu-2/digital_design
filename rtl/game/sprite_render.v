@@ -107,11 +107,42 @@ module sprite_render(
     // 2. 动画与读取逻辑
     // =========================================================
     
-    // --- 小鸟读取逻辑 ---
-    // 保持原来的逻辑，这里为了简洁省略部分注释
+    // --- 小鸟翅膀动画 ---
+    // 动画序列: 0(up) -> 1(mid) -> 2(down) -> 1(mid) -> 0(up)...
+    // 每8帧切换一次 (约133ms @ 60fps)，参考开源项目实现
     reg [1:0]  bird_anim_idx;
-    always @(posedge clk) begin
-        if(!rst_n) bird_anim_idx <= 2'd1; 
+    reg [2:0]  anim_frame_cnt;  // 帧计数器 (0-7)
+    reg        anim_dir;        // 动画方向: 0=递增, 1=递减
+    
+    always @(posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            bird_anim_idx   <= 2'd1;     // 初始化为中间帧
+            anim_frame_cnt  <= 3'd0;
+            anim_dir        <= 1'b0;
+        end else if(frame_en && game_active) begin
+            // 每帧计数器+1
+            if(anim_frame_cnt >= 3'd7) begin
+                anim_frame_cnt <= 3'd0;
+                // 切换动画帧 (0->1->2->1->0循环)
+                if(anim_dir == 1'b0) begin  // 递增方向
+                    if(bird_anim_idx >= 2'd2) begin
+                        bird_anim_idx <= 2'd1;
+                        anim_dir <= 1'b1;  // 改为递减
+                    end else begin
+                        bird_anim_idx <= bird_anim_idx + 1'b1;
+                    end
+                end else begin  // 递减方向
+                    if(bird_anim_idx <= 2'd0) begin
+                        bird_anim_idx <= 2'd1;
+                        anim_dir <= 1'b0;  // 改为递增
+                    end else begin
+                        bird_anim_idx <= bird_anim_idx - 1'b1;
+                    end
+                end
+            end else begin
+                anim_frame_cnt <= anim_frame_cnt + 1'b1;
+            end
+        end
     end
 
     wire [12:0] bird_read_addr_base;
@@ -122,8 +153,8 @@ module sprite_render(
     assign bird_read_addr_base = (bird_anim_idx == 0) ? 13'd0 : 
                                  (bird_anim_idx == 1) ? 13'd1750 : 13'd3500;
                                  
-    wire [10:0] dx_corrected = (bird_dx >= 17) ? (bird_dx - 17) : (bird_dx + 33);
-    assign bird_read_offset = bird_dy * BIRD_W + dx_corrected;
+    // 修复镜像问题：直接按顺序读取，不做奇怪的校正
+    assign bird_read_offset = bird_dy * BIRD_W + bird_dx;
     
     // --- 地面读取逻辑 (新增) ---
     reg [5:0] base_scroll_x; // 0~63

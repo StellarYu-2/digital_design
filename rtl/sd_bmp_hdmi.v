@@ -140,15 +140,32 @@ reg  [12:0]  bird_load_addr; // 扩大地址位宽：1750 * 3 = 5250，需要13�
 reg          pipe_load_en;
 reg  [15:0]  pipe_load_addr; // 80 * 500 = 40000
 
+// 地面加载逻辑信号 (新增)
+reg          base_load_en;
+reg  [13:0]  base_load_addr; // 64 * 150 = 9600
+
 // 检测是否在加载小鸟 (BIRD0, BIRD1, BIRD2)
 // BIRD0: 2552896, BIRD1: 2554646, BIRD2: 2556396
 wire is_loading_bird;
 assign is_loading_bird = (sdram_base_addr >= 24'd2552896) && (sdram_base_addr <= 24'd2556396);
 
+// 检测当前加载的是哪张小鸟图片
+wire is_loading_bird0; // down
+wire is_loading_bird1; // mid
+wire is_loading_bird2; // up
+assign is_loading_bird0 = (sdram_base_addr == 24'd2552896);
+assign is_loading_bird1 = (sdram_base_addr == 24'd2554646);
+assign is_loading_bird2 = (sdram_base_addr == 24'd2556396);
+
 // 检测是否在加载管道
 // PIPE: 2512896
 wire is_loading_pipe;
 assign is_loading_pipe = (sdram_base_addr == 24'd2512896);
+
+// 检测是否在加载地面
+// BASE: 2359296
+wire is_loading_base;
+assign is_loading_base = (sdram_base_addr == 24'd2359296);
 
 // 产生写入地址
 always @(posedge clk_50m or negedge rst_n) begin
@@ -157,8 +174,11 @@ always @(posedge clk_50m or negedge rst_n) begin
         bird_load_en <= 0;
         pipe_load_addr <= 0;
         pipe_load_en <= 0;
+        base_load_addr <= 0;
+        base_load_en <= 0;
     end else begin
         // --- 小鸟加载逻辑 ---
+        // 三张图片连续存储: BIRD0(0-1749), BIRD1(1750-3499), BIRD2(3500-5249)
         if(is_loading_bird && sdram_wr_en) begin
             bird_load_en <= 1'b1;
             bird_load_addr <= bird_load_addr + 1'b1;
@@ -173,14 +193,29 @@ always @(posedge clk_50m or negedge rst_n) begin
         end else begin
             pipe_load_en <= 1'b0;
         end
+        
+        // --- 地面加载逻辑 ---
+        if(is_loading_base && sdram_wr_en) begin
+            base_load_en <= 1'b1;
+            base_load_addr <= base_load_addr + 1'b1;
+        end else begin
+            base_load_en <= 1'b0;
+        end
 
-        // 图片切换时复位地址
+        // 图片切换时设置起始地址
         if(pic_switch) begin
-            if(sdram_base_addr == 24'd2552896) // BIRD0 Start
-                 bird_load_addr <= 0;
+            if(is_loading_bird0) // BIRD0 Start (down)
+                 bird_load_addr <= 13'd0;
+            else if(is_loading_bird1) // BIRD1 Start (mid)
+                 bird_load_addr <= 13'd1750;
+            else if(is_loading_bird2) // BIRD2 Start (up)
+                 bird_load_addr <= 13'd3500;
             
             if(sdram_base_addr == 24'd2512896) // PIPE Start
                  pipe_load_addr <= 0;
+            
+            if(sdram_base_addr == 24'd2359296) // BASE Start
+                 base_load_addr <= 0;
         end
     end
 end
@@ -326,6 +361,14 @@ sprite_render u_sprite_render(
     
     .pipe_load_en   (pipe_load_en),
     .pipe_load_addr (pipe_load_addr),
+    
+    // 地面加载接口 (新增)
+    .base_load_en   (base_load_en),
+    .base_load_addr (base_load_addr),
+    
+    // 游戏状态 (新增)
+    .game_active    (game_active),
+    .frame_en       (frame_en),
     
     .pixel_out      (sprite_pixel_out)
 );

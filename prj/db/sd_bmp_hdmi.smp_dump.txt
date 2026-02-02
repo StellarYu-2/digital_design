@@ -16,11 +16,6 @@ state.001 0 0 1 1
 state.010 0 1 0 1 
 state.011 1 0 0 1 
 
-State Machine - |sd_bmp_hdmi|sprite_render:u_sprite_render|bird_anim_idx
-Name bird_anim_idx.00 
-bird_anim_idx.01 0 
-bird_anim_idx.00 1 
-
 State Machine - |sd_bmp_hdmi|game_ctrl:u_game_ctrl|current_state
 Name current_state.S_IDLE current_state.S_OVER current_state.S_PLAY 
 current_state.S_IDLE 0 0 0 
