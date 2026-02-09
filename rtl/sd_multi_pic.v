@@ -171,6 +171,9 @@ always @(posedge clk or negedge rst_n) begin
 end
 
 // 数据解析与写入 SDRAM (带 Padding 处理 & 混合字节序)
+// 新增：base图片列过滤器
+reg [11:0] base_col_cnt;  // 列计数器 (0-1535，每行1536个16位字)
+
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         bmp_head_cnt <= 0;
@@ -179,6 +182,7 @@ always @(posedge clk or negedge rst_n) begin
         rgb888_data <= 0;
         sdram_wr_en <= 0;
         col_word_cnt <= 0;
+        base_col_cnt <= 0;
     end else begin
         sdram_wr_en <= 0;
         
@@ -187,33 +191,80 @@ always @(posedge clk or negedge rst_n) begin
             bmp_head_cnt <= 0;
             val_en_cnt <= 0;
             col_word_cnt <= 0;
+            base_col_cnt <= 0;
         end
 
         if(sd_rd_val_en) begin
             // 1. BMP 头部过滤 
             if(rd_sec_cnt == 0 && bmp_head_cnt < target_head_size) begin
                 bmp_head_cnt <= bmp_head_cnt + 1'b1;
-                col_word_cnt <= 0; 
+                col_word_cnt <= 0;
+                base_col_cnt <= 0;
             end
             // 2. 有效数据处理
             else begin
-                // --- Padding 检测逻辑 (仅小鸟图片 ID>=5) ---
-                if(pic_cnt >= 5 && col_word_cnt == 75) begin
-                    // 这是一个 Padding 字，直接丢弃！
-                    col_word_cnt <= 0; 
-                    val_en_cnt <= 0;   // 复位拼接器
-                end
-                else begin
-                    // 正常像素处理
-                    if(pic_cnt >= 5) 
-                        col_word_cnt <= col_word_cnt + 1'b1;
+                // --- Base图片列过滤逻辑 (pic_cnt == 3) ---
+                // base.bmp是1024x150，但我们只需要前32列
+                // 每行1024像素 = 3072字节 = 1536个16位字
+                // 前32像素 = 96字节 = 48个16位字
+                if(pic_cnt == 3) begin
+                    if(base_col_cnt < 12'd1535) begin
+                        base_col_cnt <= base_col_cnt + 1'b1;
+                    end else begin
+                        base_col_cnt <= 0;  // 行结束，重置
+                    end
                     
+                    // 只处理前48个字（对应32像素）
+                    if(base_col_cnt >= 12'd48) begin
+                        // 超过32列，直接丢弃，不做任何处理
+                    end
+                    else begin
+                        // 在前32列内，正常处理
+                        val_en_cnt <= val_en_cnt + 1'b1;
+                        val_data_t <= sd_rd_val_data;
+                        
+                        if(val_en_cnt == 1) begin
+                            sdram_wr_en <= 1'b1;
+                            rgb888_data <= {sd_rd_val_data[15:8], val_data_t[7:0], val_data_t[15:8]};
+                        end
+                        else if(val_en_cnt == 2) begin
+                            sdram_wr_en <= 1'b1;
+                            rgb888_data <= {sd_rd_val_data[7:0], sd_rd_val_data[15:8], val_data_t[7:0]};
+                            val_en_cnt <= 0;
+                        end
+                    end
+                end
+                // --- 小鸟图片 Padding 检测 (pic_cnt >= 5) ---
+                else if(pic_cnt >= 5) begin
+                    if(col_word_cnt == 75) begin
+                        // 这是一个 Padding 字，直接丢弃！
+                        col_word_cnt <= 0; 
+                        val_en_cnt <= 0;
+                    end
+                    else begin
+                        col_word_cnt <= col_word_cnt + 1'b1;
+                        
+                        val_en_cnt <= val_en_cnt + 1'b1;
+                        val_data_t <= sd_rd_val_data;
+                        
+                        if(val_en_cnt == 1) begin
+                            sdram_wr_en <= 1'b1;
+                            rgb888_data <= {sd_rd_val_data[15:8], val_data_t[7:0], val_data_t[15:8]};
+                        end
+                        else if(val_en_cnt == 2) begin
+                            sdram_wr_en <= 1'b1;
+                            rgb888_data <= {sd_rd_val_data[7:0], sd_rd_val_data[15:8], val_data_t[7:0]};
+                            val_en_cnt <= 0;
+                        end
+                    end
+                end
+                // --- 其他图片（背景、开始、结束）正常处理 ---
+                else begin
                     val_en_cnt <= val_en_cnt + 1'b1;
                     val_data_t <= sd_rd_val_data;
                     
                     if(val_en_cnt == 1) begin
                         sdram_wr_en <= 1'b1;
-                        // 全局回滚到原始拼接顺序 (修复小鸟颜色)
                         rgb888_data <= {sd_rd_val_data[15:8], val_data_t[7:0], val_data_t[15:8]};
                     end
                     else if(val_en_cnt == 2) begin
