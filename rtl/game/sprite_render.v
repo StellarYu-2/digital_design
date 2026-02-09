@@ -346,25 +346,25 @@ module sprite_render(
     end
 
     always @(*) begin
-        // 优先级：小鸟 > 管道 > base > 背景
+        // 优先级：小鸟 > base > 管道 > 背景 (base覆盖在pipe之上)
         if(is_bird_d1) begin
              // Check if Green (Transparency) OR Black/Empty (0x0000)
              if(bird_pixel_raw == TRANSPARENT_COLOR || bird_pixel_raw == 16'h0000) 
-                 if(is_pipe1_d1 || is_pipe2_d1) pixel_out = pipe_pixel_raw; // 透出管道
-                 else if(is_base_d1) pixel_out = base_pixel_d1; // 透出base
+                 if(is_base_d1) pixel_out = base_pixel_d1; // 优先透出base
+                 else if(is_pipe1_d1 || is_pipe2_d1) pixel_out = pipe_pixel_raw; // 再透出管道
                  else pixel_out = bg_data_d1;
              else
                  pixel_out = bird_pixel_raw;
         end
+        else if(is_base_d1) begin
+             // base优先级高于pipe，直接显示base
+             pixel_out = base_pixel_d1;
+        end
         else if(is_pipe1_d1 || is_pipe2_d1) begin
              if(pipe_pixel_raw == TRANSPARENT_COLOR || pipe_pixel_raw == 16'h0000)
-                 if(is_base_d1) pixel_out = base_pixel_d1; // 透出base
-                 else pixel_out = bg_data_d1;
+                 pixel_out = bg_data_d1;
              else
                  pixel_out = pipe_pixel_raw; // 全身都使用纹理
-        end
-        else if(is_base_d1) begin
-             pixel_out = base_pixel_d1;
         end
         else begin
              pixel_out = bg_data_d1;
