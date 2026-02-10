@@ -214,12 +214,12 @@ always @(posedge clk or negedge rst_n) begin
                         base_col_cnt <= 0;  // 行结束，重置
                     end
                     
-                    // 只处理前48个字（对应32像素）
-                    if(base_col_cnt >= 12'd48) begin
-                        // 超过32列，直接丢弃，不做任何处理
+                    // 只处理前96个字（对应64像素）
+                    if(base_col_cnt >= 12'd96) begin
+                        // 超过64列，直接丢弃，不做任何处理
                     end
                     else begin
-                        // 在前32列内，正常处理
+                        // 在前64列内，正常处理
                         val_en_cnt <= val_en_cnt + 1'b1;
                         val_data_t <= sd_rd_val_data;
                         

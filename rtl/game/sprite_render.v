@@ -52,7 +52,7 @@ module sprite_render(
     parameter TRANSPARENT_COLOR = 16'h07E0; // 小鸟的透明背景色 (纯绿)
     
     // 地面参数
-    parameter BASE_TEX_W = 32;  // 存储的纹理宽度 (必须是2的幂，从64改为32节省资源)
+    parameter BASE_TEX_W = 64;  // 存储的纹理宽度 (改回64像素，更好的视觉效果)
     parameter BASE_H     = 150; 
     parameter GROUND_Y   = 618; // 768 - 150
     
@@ -91,9 +91,9 @@ module sprite_render(
     
     // =========================================================
     // 1.8 地面纹理存储 (新增)
-    // 32 * 150 = 4800 words -> ~1 M9K (节省50%资源)
+    // 64 * 150 = 9600 words -> ~2 M9K
     // =========================================================
-    reg [15:0] base_ram [0:4799];
+    reg [15:0] base_ram [0:9599];
     reg [15:0] base_pixel_raw;
     
     // 调试模式：生成测试条纹（取消注释以使用）
@@ -102,7 +102,7 @@ module sprite_render(
     
     always @(posedge bird_load_clk) begin
         if(base_load_en) begin
-            if(base_load_addr < 4800)
+            if(base_load_addr < 9600)
                 base_ram[base_load_addr] <= bird_load_data;
         end
     end
@@ -176,26 +176,26 @@ module sprite_render(
     assign bird_read_offset = bird_dy * BIRD_W + bird_dx;
     
     // --- 地面读取逻辑 (新增) ---
-    reg [4:0] base_scroll_x; // 0~31 (改为5位，配合32像素宽度)
+    reg [5:0] base_scroll_x; // 0~63 (6位，配合64像素宽度)
     
     always @(posedge clk) begin
         if(!rst_n) 
             base_scroll_x <= 0;
         else if(frame_en && game_active)
-            base_scroll_x <= base_scroll_x + 2; // 滚动速度 2 (适当调整)
+            base_scroll_x <= base_scroll_x + 3; // 滚动速度 3
     end
     
-    reg [12:0] base_read_addr; // 13位足够：4800 < 8192
+    reg [13:0] base_read_addr; // 14位：9600 < 16384
     
     always @(*) begin
         base_read_addr = 0;
         if(pixel_y >= GROUND_Y) begin
-            reg [4:0] tex_x;
+            reg [5:0] tex_x;
             reg [7:0] tex_y;
             
-            // Texture X = (Screen X + Scroll Offset) % 32
-            // 只要取低5位即可自动实现 % 32
-            tex_x = pixel_x[4:0] + base_scroll_x;
+            // Texture X = (Screen X + Scroll Offset) % 64
+            // 只要取低6位即可自动实现 % 64
+            tex_x = pixel_x[5:0] + base_scroll_x;
             
             tex_y = pixel_y - GROUND_Y;
             
@@ -298,10 +298,10 @@ module sprite_render(
         bird_pixel_raw <= bird_ram[bird_read_addr_base + bird_read_offset];
         pipe_pixel_raw <= pipe_ram[pipe_read_addr];
         
-        // 调试模式：使用算法生成base颜色
+    // 调试模式：使用算法生成base颜色
         if(BASE_DEBUG_MODE) begin
             // 生成黄绿相间的条纹用于测试
-            if(base_read_addr[4:0] < 16)
+            if(base_read_addr[5:0] < 32)
                 base_pixel_raw <= 16'hFFE0; // 黄色
             else
                 base_pixel_raw <= 16'h07E0; // 绿色

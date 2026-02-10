@@ -10,8 +10,8 @@ import os
 
 # 配置参数
 TRANSPARENT_COLOR = (0, 255, 0)  # 绿色作为透明色键 (RGB565: 0x07E0)
-INPUT_DIR = 'doc'
-OUTPUT_DIR = 'doc/bmp_output'
+INPUT_DIR = '../doc'
+OUTPUT_DIR = '../doc/bmp_output'
 
 def ensure_output_dir():
     """确保输出目录存在"""
@@ -153,6 +153,9 @@ def main():
         
         # 管道 - 等比放大
         ('pipe-green.png', 'pipe_80x500.bmp', (80, 500)),
+        
+        # new.png - 转换为1024x768 BMP
+        ('png/new.png', 'new.bmp', (1024, 768)),
         
         # 小鸟动画帧 - 等比放大
         ('yellowbird-downflap.png', 'bird_down_50x35.bmp', (50, 35)),
