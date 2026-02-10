@@ -1,0 +1,50 @@
+# Quartus II 生成文件
+*.qws
+*.rpt
+*.summary
+*.smsg
+*.done
+*.cdf
+*.asm.rpt
+*.fit.*
+*.map.*
+*.sta.*
+*.jdi
+*.sof
+*.pof
+*.sld
+*.ddb
+*.pin
+*.wdc
+*.sdc
+
+# Quartus工作目录
+db/
+incremental_db/
+greybox_tmp/
+output_files/
+simulation/
+synthesis/
+
+# Quartus项目文件
+*.qpf
+*.qsf
+*.qdf
+
+# IDE和编辑器
+*.bak
+*~
+.#*
+\#*\#
+.DS_Store
+Thumbs.db
+
+# 仿真文件
+modelsim.ini
+work/
+*.vcd
+
+# 临时文件
+*.tmp
+*.log
+*.ntrc
