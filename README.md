@@ -1,4 +1,5 @@
 # FPGA Flappy Bird Game
+([中文](README.zh-CN.md)|English)
 
 A Flappy Bird game implemented on FPGA using Verilog HDL, featuring HDMI output, SD card image loading, and AI auto-play mode.
 ![Game Preview](doc/png/new.png)
@@ -101,3 +102,4 @@ Open `prj/sd_bmp_hdmi.qpf` in Quartus II/Prime and program the FPGA.
 - **Image Format**: 16-bit BMP (RGB565)
 - **SD Card Interface**: SPI mode
 
+ 
