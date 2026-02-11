@@ -2,7 +2,10 @@
 ([中文](README.zh-CN.md)|English)
 
 A Flappy Bird game implemented on FPGA using Verilog HDL, featuring HDMI output, SD card image loading, and AI auto-play mode.
-![Game Preview](doc/png/new.png)
+
+<p align="center">
+  <img src="doc/png/new.png" alt="game preview" width="600" />
+</p>
 
 ## Features
 

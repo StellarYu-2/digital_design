@@ -2,7 +2,10 @@
 ([English](README.md)|中文）
 
 基于FPGA的Flappy Bird游戏实现，使用Verilog HDL编写，支持HDMI输出、SD卡图片加载和AI自动游戏模式。
-![游戏预览](doc/png/new.png)
+
+<p align="center">
+  <img src="doc/png/new.png" alt="游戏预览" width="600" />
+</p>
 
 ## 功能特性
 
