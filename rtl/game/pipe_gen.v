@@ -14,7 +14,7 @@ module pipe_gen(
     output reg         score_pulse    // 得分脉冲
 );
 
-    parameter PIPE_START_X = 600;        // 调试：初始位置改在屏幕内
+    parameter PIPE_START_X = 150;        // 调试：初始位置靠近左侧，便于观察重置
     parameter PIPE_DIST    = 350;        // 增大管道间距 (适当放宽)
     parameter PIPE_SPEED   = 3;          // 初始移动速度
     parameter PIPE_GAP_H   = 220;        // 增大缝隙高度 (原来是200)
